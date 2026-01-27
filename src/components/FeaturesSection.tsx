@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useState, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   FileCode2,
   Database,
@@ -11,6 +12,7 @@ import {
   PenTool,
   Workflow,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const features = [
   {
@@ -66,8 +68,25 @@ const features = [
 ];
 
 export const FeaturesSection = () => {
+  const [showAll, setShowAll] = useState(false);
+  const visibleFeatures = showAll ? features : features.slice(0, 6);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  const handleToggle = () => {
+    if (showAll && sectionRef.current) {
+      // Scroll to top of section when collapsing
+      const offset = window.innerWidth >= 1024 ? 50 : 0; // 2 box heights offset on desktop
+      const elementPosition = sectionRef.current.getBoundingClientRect().top + window.pageYOffset;
+      window.scrollTo({
+        top: elementPosition - offset,
+        behavior: 'smooth'
+      });
+    }
+    setShowAll((prev) => !prev);
+  };
+
   return (
-    <section id="features" className="section-padding">
+    <section id="features" className="section-padding" ref={sectionRef}>
       <div className="container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -84,25 +103,39 @@ export const FeaturesSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <motion.div
-              key={feature.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
-            >
-              <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                <feature.icon className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <h3 className="text-lg font-bold font-display mb-2">{feature.title}</h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {feature.description}
-              </p>
-            </motion.div>
-          ))}
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AnimatePresence initial={false}>
+            {visibleFeatures.map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                layout
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25, delay: index * 0.03 }}
+                className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
+              >
+                <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <feature.icon className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <h3 className="text-lg font-bold font-display mb-2">{feature.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {feature.description}
+                </p>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </motion.div>
+
+        <div className="flex justify-center mt-10">
+          <Button
+            variant="outline"
+            size="lg"
+            className="rounded-full px-6"
+            onClick={handleToggle}
+          >
+            {showAll ? "View Less" : "View More"}
+          </Button>
         </div>
       </div>
     </section>

@@ -19,6 +19,7 @@ const carouselItems = [
 
 export const HeroSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -26,6 +27,10 @@ export const HeroSection = () => {
     }, 4000);
     return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    setImageLoaded(false);
+  }, [activeIndex]);
 
   return (
     <section id="home" className="relative pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
@@ -141,13 +146,23 @@ export const HeroSection = () => {
                     </div>
                   </div>
 
-                  <div className="w-[80%] mx-auto overflow-hidden rounded-xl border border-border/60 bg-muted/30">
-                    <img
-                      src={carouselItems[activeIndex].image}
-                      alt={`${carouselItems[activeIndex].label} preview`}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
+                  <div className="w-[80%] mx-auto overflow-hidden rounded-xl border border-border/60 bg-muted/30 min-h-[300px] md:min-h-[400px] relative">
+                    <AnimatePresence mode="wait">
+                      <motion.img
+                        key={`img-${activeIndex}`}
+                        src={carouselItems[activeIndex].image}
+                        alt={`${carouselItems[activeIndex].label} preview`}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: imageLoaded ? 1 : 0 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        onLoad={() => setImageLoaded(true)}
+                        className="w-full h-full object-cover"
+                      />
+                    </AnimatePresence>
+                    {!imageLoaded && (
+                      <div className="absolute inset-0 bg-muted/50 animate-pulse" />
+                    )}
                   </div>
                 </motion.div>
               </AnimatePresence>
