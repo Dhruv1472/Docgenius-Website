@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText, Eye, Files, FileDown, PenTool } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CTA_LINKS } from "@/lib/cta-links";
+import { CTA_LINKS } from "@/lib/utils";
 import featureImg1 from "@/assets/hero-section-feature-1.png";
 import featureImg2 from "@/assets/hero-section-feature-2.png";
 import featureImg3 from "@/assets/hero-section-feature-3.png";
@@ -146,7 +146,7 @@ export const HeroSection = () => {
                   transition={{ duration: 0.4 }}
                   className="flex flex-col items-start gap-6 md:gap-8 text-left"
                 >
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-4 items-center justify-center">
                     <div className="flex-shrink-0 w-12 h-12 rounded-2xl gradient-bg flex items-center justify-center shadow-lg">
                       {(() => {
                         const Icon = carouselItems[activeIndex].icon;

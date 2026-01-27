@@ -1,14 +1,16 @@
 import { motion } from "framer-motion";
 import docgeniusLogo from "@/assets/docGeniusLogoSvg.svg";
 import mvcloudsLogo from "@/assets/mvclouds-logo.svg";
+import { CTA_LINKS } from "@/lib/utils";
 
 const quickLinks = [
   { label: "Home", href: "#home" },
   { label: "Use Cases", href: "#usecase" },
   { label: "Features", href: "#features" },
   { label: "Why DocGenius", href: "#why-docgenius" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "Reviews", href: "#reviews" },
+  { label: "Industries", href: "#industries" },
+  // { label: "Pricing", href: "#pricing" },
+  // { label: "Reviews", href: "#reviews" },
   { label: "FAQs", href: "#faqs" },
 ];
 
@@ -75,10 +77,10 @@ export const Footer = () => {
             © {new Date().getFullYear()} DocGenius. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <a href="#" className="text-background/50 hover:text-background text-sm transition-colors">
+            <a href={CTA_LINKS.privacyPolicy} target="_blank" className="text-background/50 hover:text-background text-sm transition-colors">
               Privacy Policy
             </a>
-            <a href="#" className="text-background/50 hover:text-background text-sm transition-colors">
+            <a href={CTA_LINKS.termsOfUse} target="_blank" className="text-background/50 hover:text-background text-sm transition-colors">
               Terms of Service
             </a>
           </div>

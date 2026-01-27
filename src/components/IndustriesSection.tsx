@@ -95,11 +95,11 @@ export const IndustriesSection = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: absoluteIndex * 0.05 }}
                 onClick={() => handleIndustryClick(absoluteIndex)}
-                className={`group bg-card border rounded-xl p-4 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer ${
+                className={`group bg-card border rounded-xl p-4 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col items-center justify-center gap-3 ${
                   isSelected ? 'border-primary shadow-lg' : 'border-border hover:border-primary/30'
                 }`}
               >
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-3 transition-colors duration-300 ${
+                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mx-auto transition-colors duration-300 ${
                   isSelected ? 'bg-primary/20' : 'bg-primary/10 group-hover:bg-primary/20'
                 }`}>
                   <industry.icon className="w-5 h-5 text-primary" />
@@ -120,7 +120,7 @@ export const IndustriesSection = () => {
                 className="col-span-full overflow-hidden"
               >
                 <div className="bg-card border border-primary/50 rounded-xl p-6 mt-4 mb-4 shadow-lg">
-                  <div className="flex items-start gap-4">
+                  <div className="flex items-start gap-4 items-center justify-center">
                     <div className="flex-shrink-0 w-12 h-12 rounded-lg gradient-bg flex items-center justify-center">
                       {(() => {
                         const Icon = industries[selectedIndex].icon;
@@ -128,7 +128,7 @@ export const IndustriesSection = () => {
                       })()}
                     </div>
                     <div className="flex-1">
-                      <h4 className="text-lg font-bold font-display mb-2">
+                      <h4 className="text-lg font-bold font-display">
                         {industries[selectedIndex].name}
                       </h4>
                       <p className="text-muted-foreground leading-relaxed">

@@ -61,13 +61,13 @@ export const WhyChooseSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:border-primary/30 transition-all duration-700 ease-in-out relative overflow-visible h-[11rem] md:h-[12rem]"
+              className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:border-primary/30 transition-all duration-300 ease-in-out relative overflow-visible h-[11rem] md:h-[12rem]"
             >
               <div className="relative">
-                <div className="absolute top-0 left-0 w-12 h-12 rounded-xl gradient-bg flex items-center justify-center transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:-translate-x-10 group-hover:-translate-y-10 z-10">
+                <div className="absolute top-0 left-0 w-12 h-12 rounded-xl gradient-bg flex items-center justify-center transition-all ease-in-out group-hover:scale-110 transition-transform duration-300">
                   <reason.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <div className="transition-all duration-700 ease-in-out pl-16 group-hover:pl-0 group-hover:ml-4 min-h-[120px]">
+                <div className="transition-all duration-700 ease-in-out pl-16">
                   <h3 className="text-lg font-bold font-display mb-2">{reason.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {reason.description}

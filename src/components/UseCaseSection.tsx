@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { MousePointer, FileText, Send, Database, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CTA_LINKS } from "@/lib/cta-links";
+import { CTA_LINKS } from "@/lib/utils";
 
 const steps = [
   { icon: MousePointer, label: "Open Record", description: "Open any Salesforce record" },
@@ -65,8 +65,8 @@ export const UseCaseSection = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative"
             >
-              <div className="bg-card border border-border rounded-xl p-6 text-center h-full hover:shadow-lg hover:border-primary/30 transition-all duration-300">
-                <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mx-auto mb-4">
+              <div className="bg-card border border-border rounded-xl p-6 text-center h-full hover:shadow-lg hover:border-primary/30 transition-all duration-300 group">
+                <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mx-auto mb-4 transition-all ease-in-out group-hover:scale-110 transition-transform duration-300">
                   <step.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
                 <div className="absolute -top-3 -left-3 w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold flex items-center justify-center">

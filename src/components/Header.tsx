@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CTA_LINKS } from "@/lib/cta-links";
+import { CTA_LINKS } from "@/lib/utils";
 import docgeniusLogo from "@/assets/docGeniusLogoSvg.svg";
 
 const navLinks = [
@@ -22,7 +22,7 @@ export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
       <div className="px-4">
-        <div className="max-w-7xl mx-auto flex items-center justify-between h-16 md:h-20">
+        <div className="container-narrow mx-auto flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#home" className="flex items-center gap-2">
             <img 
@@ -38,7 +38,7 @@ export const Header = () => {
               <a
                 key={link.href}
                 href={link.href}
-                className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className="text-nowrap px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
               </a>
