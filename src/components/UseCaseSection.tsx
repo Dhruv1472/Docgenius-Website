@@ -41,7 +41,7 @@ export const UseCaseSection = () => {
           <div className="lg:flex-row gap-8 items-center">
             <div className="flex-1">
               <img 
-                src="/src/assets/usecase-hero.jpeg" 
+                src="/src/assets/usecase-hero.png" 
                 alt="Instant Branded Contracts from Salesforce - DocGenius"
                 className="w-full rounded-lg shadow-md object-cover"
               />
