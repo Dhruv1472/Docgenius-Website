@@ -36,7 +36,7 @@ const features = [
   {
     icon: Files,
     title: "Bulk & Scheduled Generation",
-    description: "Save valuable time by generating documents for hundreds or thousands of records simultaneously. Automate recurring document creation with flexible scheduling.",
+    description: "Save valuable time by generating documents for hundreds of records simultaneously. Automate recurring document creation with flexible scheduling.",
   },
   {
     icon: FileOutput,

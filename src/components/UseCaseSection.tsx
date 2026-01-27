@@ -1,11 +1,12 @@
 import { motion } from "framer-motion";
 import { MousePointer, FileText, Send, Database, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CTA_LINKS } from "@/lib/cta-links";
 
 const steps = [
   { icon: MousePointer, label: "Open Record", description: "Open any Salesforce record" },
   { icon: FileText, label: "Generate", description: "Click Generate Document" },
-  { icon: CheckCircle, label: "Auto-Create", description: "DocGenius creates the document" },
+  { icon: CheckCircle, label: "Auto-Generate", description: "DocGenius generates the document" },
   { icon: Send, label: "Send for Signature", description: "Sent for digital signature" },
   { icon: Database, label: "Auto-Store", description: "Stored automatically in Salesforce" },
 ];
@@ -90,11 +91,15 @@ export const UseCaseSection = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
         >
-          <Button variant="hero" size="lg">
-            Book a Demo
+          <Button variant="hero" size="lg" asChild>
+            <a href={CTA_LINKS.bookDemo} target="_blank" rel="noreferrer">
+              Book a Demo
+            </a>
           </Button>
-          <Button variant="hero-outline" size="lg">
-            Start Free Trial
+          <Button variant="hero-outline" size="lg" asChild>
+            <a href={CTA_LINKS.freeTrial} target="_blank" rel="noreferrer">
+              Start Free Trial
+            </a>
           </Button>
         </motion.div>
       </div>

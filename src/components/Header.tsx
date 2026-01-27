@@ -2,7 +2,8 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import docgeniusLogo from "@/assets/docgenius-logo.png";
+import { CTA_LINKS } from "@/lib/cta-links";
+import docgeniusLogo from "@/assets/docGeniusLogoSvg.svg";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -46,11 +47,15 @@ export const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="hero-outline" size="default">
-              Book Demo
+            <Button variant="hero" size="default" asChild>
+              <a href={CTA_LINKS.bookDemo} target="_blank" rel="noreferrer">
+                Book Demo
+              </a>
             </Button>
-            <Button variant="hero" size="default">
-              Free Trial
+            <Button variant="hero-outline" size="default" asChild>
+              <a href={CTA_LINKS.freeTrial} target="_blank" rel="noreferrer">
+                Free Trial
+              </a>
             </Button>
           </div>
 
@@ -87,11 +92,15 @@ export const Header = () => {
                   </a>
                 ))}
                 <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
-                  <Button variant="hero-outline" size="lg" className="w-full">
-                    Book Demo
+                  <Button variant="hero" size="lg" className="w-full" asChild>
+                    <a href={CTA_LINKS.bookDemo} target="_blank" rel="noreferrer">
+                      Book Demo
+                    </a>
                   </Button>
-                  <Button variant="hero" size="lg" className="w-full">
-                    Free Trial
+                  <Button variant="hero-outline" size="lg" className="w-full" asChild>
+                    <a href={CTA_LINKS.freeTrial} target="_blank" rel="noreferrer">
+                      Free Trial
+                    </a>
                   </Button>
                 </div>
               </div>

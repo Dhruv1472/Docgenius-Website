@@ -25,7 +25,7 @@ const faqs = [
   },
   {
     question: "Is there a limit on how many documents I can generate?",
-    answer: "With our Professional and Enterprise plans, you can generate unlimited documents. Our bulk generation feature can handle thousands of documents at once, and we even support exporting up to 1 million records to a single spreadsheet.",
+    answer: "With our Professional and Enterprise plans, you can generate unlimited documents. Our bulk generation feature can handle hundred of documents at once, and we even support exporting up to 1 million records to a single spreadsheet.",
   },
   {
     question: "How secure is DocGenius?",

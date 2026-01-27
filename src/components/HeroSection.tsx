@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText, Eye, Files, FileDown, PenTool } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CTA_LINKS } from "@/lib/cta-links";
 import featureImg1 from "@/assets/hero-section-feature-1.png";
 import featureImg2 from "@/assets/hero-section-feature-2.png";
 import featureImg3 from "@/assets/hero-section-feature-3.png";
@@ -11,7 +12,7 @@ import featureImg5 from "@/assets/hero-section-feature-5.png";
 const carouselItems = [
   { icon: FileText, label: "Template Builder", description: "Design professional templates with drag-and-drop ease", image: featureImg1 },
   { icon: Eye, label: "Live Preview with Data", description: "See your documents with real Salesforce data instantly", image: featureImg2 },
-  { icon: Files, label: "Bulk Document Generation", description: "Generate thousands of documents in seconds", image: featureImg3 },
+  { icon: Files, label: "Bulk Document Generation", description: "Generate documents in seconds", image: featureImg3 },
   { icon: FileDown, label: "One-Click PDF", description: "Create instant PDFs without any template setup", image: featureImg4 },
   { icon: PenTool, label: "Digital Signature", description: "Built-in e-signatures for seamless approvals", image: featureImg5 },
 ];
@@ -22,7 +23,7 @@ export const HeroSection = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % carouselItems.length);
-    }, 400000);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
@@ -79,11 +80,15 @@ export const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <Button variant="hero" size="xl">
-              Book a Demo
+            <Button variant="hero" size="xl" asChild>
+              <a href={CTA_LINKS.bookDemo} target="_blank" rel="noreferrer">
+                Book a Demo
+              </a>
             </Button>
-            <Button variant="hero-outline" size="xl">
-              Start Free Trial
+            <Button variant="hero-outline" size="xl" asChild>
+              <a href={CTA_LINKS.freeTrial} target="_blank" rel="noreferrer">
+                Start Free Trial
+              </a>
             </Button>
           </motion.div>
 

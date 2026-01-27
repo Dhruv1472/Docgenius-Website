@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CTA_LINKS } from "@/lib/cta-links";
 import { useState } from "react";
 
 const plans = [
@@ -109,13 +110,26 @@ export const PricingSection = () => {
                   </li>
                 ))}
               </ul>
-              <Button
-                variant={selectedPlan === plan.name ? "hero" : "outline"}
-                size="lg"
-                className="w-full mt-auto"
-              >
-                {plan.cta}
-              </Button>
+              {plan.cta === "Start Free Trial" ? (
+                <Button
+                  variant={selectedPlan === plan.name ? "hero" : "outline"}
+                  size="lg"
+                  className="w-full mt-auto"
+                  asChild
+                >
+                  <a href={CTA_LINKS.freeTrial} target="_blank" rel="noreferrer">
+                    {plan.cta}
+                  </a>
+                </Button>
+              ) : (
+                <Button
+                  variant={selectedPlan === plan.name ? "hero" : "outline"}
+                  size="lg"
+                  className="w-full mt-auto"
+                >
+                  {plan.cta}
+                </Button>
+              )}
             </motion.div>
           ))}
         </div>
