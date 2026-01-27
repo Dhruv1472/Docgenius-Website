@@ -52,7 +52,7 @@ export const UseCaseSection = () => {
               </p>
             </div>
           </div>
-        </motion.div>
+        </motion.div> 
 
         {/* Steps */}
         <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
