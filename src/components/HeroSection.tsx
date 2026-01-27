@@ -102,7 +102,7 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="relative"
+            className="relative scale-90"
           >
             {/* Carousel Indicators */}
             <div className="flex items-center justify-center gap-2 mb-8">
@@ -130,10 +130,10 @@ export const HeroSection = () => {
                   className="flex flex-col items-start gap-6 md:gap-8 text-left"
                 >
                   <div className="flex items-start gap-4">
-                    <div className="flex-shrink-0 w-14 h-14 rounded-2xl gradient-bg flex items-center justify-center shadow-lg">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-2xl gradient-bg flex items-center justify-center shadow-lg">
                       {(() => {
                         const Icon = carouselItems[activeIndex].icon;
-                        return <Icon className="w-8 h-8 text-primary-foreground" />;
+                        return <Icon className="w-6 h-6 text-primary-foreground" />;
                       })()}
                     </div>
                     <div>
@@ -146,7 +146,7 @@ export const HeroSection = () => {
                     </div>
                   </div>
 
-                  <div className="w-[80%] mx-auto overflow-hidden rounded-xl border border-border/60 bg-muted/30 min-h-[300px] md:min-h-[400px] relative">
+                  <div className="mx-auto overflow-hidden rounded-xl border border-border/60 bg-muted/30 md:min-h-[400px] relative">
                     <AnimatePresence mode="wait">
                       <motion.img
                         key={`img-${activeIndex}`}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Building2,
@@ -32,22 +32,44 @@ const industries = [
 
 export const IndustriesSection = () => {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-
-  const handleIndustryClick = (index: number) => {
-    setSelectedIndex(selectedIndex === index ? null : index);
-  };
-
-  const getItemsPerRow = () => {
-    if (typeof window === 'undefined') return 6;
+  const [itemsPerRow, setItemsPerRow] = useState(() => {
+    if (typeof window === "undefined") return 6;
     const width = window.innerWidth;
     if (width < 640) return 2; // Mobile
     if (width < 768) return 3; // sm
     if (width < 1024) return 4; // md
     return 6; // lg
+  });
+
+  const handleIndustryClick = (index: number) => {
+    setSelectedIndex(selectedIndex === index ? null : index);
   };
 
+  // Reset selection when layout breakpoint changes to avoid abrupt jumps
+  useEffect(() => {
+    const handleResize = () => {
+      if (typeof window === "undefined") return;
+      const width = window.innerWidth;
+      let next = 6;
+      if (width < 640) next = 2;
+      else if (width < 768) next = 3;
+      else if (width < 1024) next = 4;
+
+      setItemsPerRow((prev) => {
+        if (prev !== next) {
+          setSelectedIndex(null);
+          return next;
+        }
+        return prev;
+      });
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const renderIndustriesWithExpansion = () => {
-    const itemsPerRow = getItemsPerRow();
     const rows: JSX.Element[] = [];
     
     for (let i = 0; i < industries.length; i += itemsPerRow) {
@@ -87,15 +109,15 @@ export const IndustriesSection = () => {
             );
           })}
           
-          {selectedInRow && selectedIndex !== null && (
-            <AnimatePresence mode="wait">
+          <AnimatePresence mode="wait" initial={false}>
+            {selectedInRow && selectedIndex !== null && (
               <motion.div
                 key={`expansion-${rowIndex}`}
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
-                transition={{ duration: 0.3 }}
-                className="col-span-full"
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="col-span-full overflow-hidden"
               >
                 <div className="bg-card border border-primary/50 rounded-xl p-6 mt-4 mb-4 shadow-lg">
                   <div className="flex items-start gap-4">
@@ -116,8 +138,8 @@ export const IndustriesSection = () => {
                   </div>
                 </div>
               </motion.div>
-            </AnimatePresence>
-          )}
+            )}
+          </AnimatePresence>
         </div>
       );
     }
