@@ -61,16 +61,13 @@ export const WhyChooseSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:border-primary/30 transition-all duration-700 ease-in-out relative overflow-visible"
+              className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:border-primary/30 transition-all duration-700 ease-in-out relative overflow-visible h-[11rem] md:h-[12rem]"
             >
-              <div className="flex gap-4 relative">
-                <div className="flex-shrink-0 w-12 h-12 rounded-xl gradient-bg flex items-center justify-center transition-all duration-700 ease-in-out group-hover:opacity-0 group-hover:scale-0">
+              <div className="relative">
+                <div className="absolute top-0 left-0 w-12 h-12 rounded-xl gradient-bg flex items-center justify-center transition-all duration-700 ease-in-out group-hover:scale-110 group-hover:-translate-x-10 group-hover:-translate-y-10 z-10">
                   <reason.icon className="w-6 h-6 text-primary-foreground" />
                 </div>
-                <div className="absolute top-0 left-0 w-12 h-12 rounded-xl gradient-bg flex items-center justify-center transition-all duration-700 ease-in-out opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-110 group-hover:-top-10 group-hover:-left-10">
-                  <reason.icon className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <div className="flex-1 transition-all duration-700 ease-in-out">
+                <div className="transition-all duration-700 ease-in-out pl-16 group-hover:pl-0 group-hover:ml-4 min-h-[120px]">
                   <h3 className="text-lg font-bold font-display mb-2">{reason.title}</h3>
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {reason.description}

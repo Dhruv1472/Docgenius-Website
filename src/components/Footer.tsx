@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import docgeniusLogo from "@/assets/docgenius-logo-icon.png";
+import docgeniusLogo from "@/assets/docGeniusLogoSvg.svg";
 import mvcloudsLogo from "@/assets/mvclouds-logo.svg";
 
 const quickLinks = [
@@ -28,7 +28,7 @@ export const Footer = () => {
             <img 
               src={docgeniusLogo} 
               alt="DocGenius" 
-              className="h-16 w-auto mb-4 "
+              className="h-16 w-auto mb-4 brightness-0 invert mb-1"
             />
             <p className="text-background/70 text-sm leading-relaxed">
               From proposals and contracts to reports and letters, DocGenius makes the entire document journey fast, clean, and stress-free.
@@ -56,7 +56,7 @@ export const Footer = () => {
           <div>
             <h4 className="font-bold font-display text-lg mb-4">Contact</h4>
             <p className="text-background/70 text-sm mb-6">
-              Have questions? Reach out to our team for support and inquiries.
+              Have questions? Reach out to our team for support and inquiries at docgenius@mvclouds.com.
             </p>
             <div className="pt-4 border-t border-background/20">
               <p className="text-background/50 text-xs mb-2">Powered by</p>

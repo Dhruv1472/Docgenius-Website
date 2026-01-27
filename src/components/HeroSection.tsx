@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { FileText, Eye, Files, FileDown, PenTool } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,13 +20,30 @@ const carouselItems = [
 export const HeroSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
+  const timerRef = useRef<number | null>(null);
+
+  const handleIndicatorClick = (index: number) => {
+    if (timerRef.current) {
+      window.clearTimeout(timerRef.current);
+    }
+    setActiveIndex(index);
+  };
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    if (timerRef.current) {
+      window.clearTimeout(timerRef.current);
+    }
+
+    timerRef.current = window.setTimeout(() => {
       setActiveIndex((prev) => (prev + 1) % carouselItems.length);
     }, 4000);
-    return () => clearInterval(interval);
-  }, []);
+
+    return () => {
+      if (timerRef.current) {
+        window.clearTimeout(timerRef.current);
+      }
+    };
+  }, [activeIndex]);
 
   useEffect(() => {
     setImageLoaded(false);
@@ -63,8 +80,8 @@ export const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold font-display !leading-[1.3] mb-6"
           >
-            <span className="block">Stop Building Documents Manually.</span>
-            <span className="block gradient-text">Start Generating Them Instantly.</span>
+            <span className="block">Stop Building Documents Manually</span>
+            <span className="block gradient-text">Start Generating Them Instantly</span>
           </motion.h1>
 
           {/* Subheadline */}

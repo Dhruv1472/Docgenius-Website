@@ -129,7 +129,7 @@ export const FeaturesSection = () => {
 
         <div className="flex justify-center mt-10">
           <Button
-            variant="outline"
+            variant="hero"
             size="lg"
             className="rounded-full px-6"
             onClick={handleToggle}

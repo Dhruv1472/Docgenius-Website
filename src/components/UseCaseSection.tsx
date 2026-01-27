@@ -77,7 +77,7 @@ export const UseCaseSection = () => {
               </div>
               {/* Connector Line */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-1/2 -right-2 w-4 h-0.5 bg-border" />
+                <div className="hidden md:block absolute top-1/2 -right-4 w-4 h-0.5 bg-border" />
               )}
             </motion.div>
           ))}
