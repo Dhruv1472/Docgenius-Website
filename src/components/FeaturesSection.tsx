@@ -18,17 +18,17 @@ const features = [
   {
     icon: FileCode2,
     title: "No-Code Template Builder",
-    description: "Design professional document templates effortlessly — no coding or technical skills necessary. Customize with our intuitive drag-and-drop editor.",
+    description: "Design professional document templates effortlessly - no coding or technical skills necessary. Customize with our intuitive drag-and-drop editor.",
   },
   {
     icon: Database,
     title: "Works with Standard & Custom Objects",
-    description: "Pull data from any Salesforce object — standard or custom — ensuring your documents perfectly reflect your unique business data.",
+    description: "Pull data from any Salesforce object - standard or custom - ensuring your documents perfectly reflect your unique business data.",
   },
   {
     icon: MousePointerClick,
     title: "Easy Field Mapping",
-    description: "Quickly map Salesforce fields into your documents using drag-and-drop or simple copy-paste — without complex queries or coding.",
+    description: "Quickly map Salesforce fields into your documents using drag-and-drop or simple copy-paste - without complex queries or coding.",
   },
   {
     icon: Eye,
@@ -43,12 +43,12 @@ const features = [
   {
     icon: FileOutput,
     title: "Multiple Export Formats",
-    description: "Export documents as polished PDFs, editable DOCX files, or data-friendly CSVs — ready for any workflow or use case.",
+    description: "Export documents as polished PDFs, editable DOCX files, or data-friendly CSVs - ready for any workflow or use case.",
   },
   {
     icon: Cloud,
     title: "Salesforce & External Storage",
-    description: "Securely save your documents within Salesforce or to external platforms like Google Drive, OneDrive, Dropbox, or AWS — all seamlessly connected.",
+    description: "Securely save your documents within Salesforce or to external platforms like Google Drive, OneDrive, Dropbox, or AWS - all seamlessly connected.",
   },
   {
     icon: Zap,
@@ -63,7 +63,7 @@ const features = [
   {
     icon: Workflow,
     title: "Flow & Automation Ready",
-    description: "Integrate DocGenius effortlessly into your Salesforce automation — generate documents as part of Screen Flows or trigger automatically when records change.",
+    description: "Integrate DocGenius effortlessly into your Salesforce automation - generate documents as part of Screen Flows or trigger automatically when records change.",
   },
 ];
 

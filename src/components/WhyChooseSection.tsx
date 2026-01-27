@@ -10,7 +10,7 @@ const reasons = [
   {
     icon: Code2,
     title: "No Coding Needed",
-    description: "Create powerful, professional documents without queries or technical expertise — simple and accessible for every user.",
+    description: "Create powerful, professional documents without queries or technical expertise - simple and accessible for every user.",
   },
   {
     icon: TrendingUp,
@@ -61,16 +61,21 @@ export const WhyChooseSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="flex gap-4 bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:border-primary/30 transition-all duration-300"
+              className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:border-primary/30 transition-all duration-700 ease-in-out relative overflow-visible"
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl gradient-bg flex items-center justify-center">
-                <reason.icon className="w-6 h-6 text-primary-foreground" />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold font-display mb-2">{reason.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {reason.description}
-                </p>
+              <div className="flex gap-4 relative">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl gradient-bg flex items-center justify-center transition-all duration-700 ease-in-out group-hover:opacity-0 group-hover:scale-0">
+                  <reason.icon className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <div className="absolute top-0 left-0 w-12 h-12 rounded-xl gradient-bg flex items-center justify-center transition-all duration-700 ease-in-out opacity-0 scale-75 group-hover:opacity-100 group-hover:scale-110 group-hover:-top-10 group-hover:-left-10">
+                  <reason.icon className="w-6 h-6 text-primary-foreground" />
+                </div>
+                <div className="flex-1 transition-all duration-700 ease-in-out">
+                  <h3 className="text-lg font-bold font-display mb-2">{reason.title}</h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {reason.description}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}

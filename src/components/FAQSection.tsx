@@ -13,7 +13,7 @@ const faqs = [
   },
   {
     question: "How does DocGenius integrate with Salesforce?",
-    answer: "DocGenius is a 100% native Salesforce app, meaning it's installed directly in your Salesforce org. There's no external setup required — it works seamlessly with your existing data, objects, and security settings.",
+    answer: "DocGenius is a 100% native Salesforce app, meaning it's installed directly in your Salesforce org. There's no external setup required - it works seamlessly with your existing data, objects, and security settings.",
   },
   {
     question: "Can I use my own document templates?",
