@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { MousePointer, FileText, Send, Database, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA_LINKS } from "@/lib/utils";
+import usecaseHero from "@/assets/case-hero.png";
 
 const steps = [
   { icon: MousePointer, label: "Open Record", description: "Open any Salesforce record" },
@@ -41,7 +42,7 @@ export const UseCaseSection = () => {
           <div className="lg:flex-row gap-8 items-center">
             <div className="flex-1">
               <img 
-                src="/src/assets/case-hero.png" 
+                src={usecaseHero} 
                 alt="Instant Branded Contracts from Salesforce - DocGenius"
                 className="w-full rounded-lg shadow-md object-cover"
               />
