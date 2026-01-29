@@ -1,13 +1,15 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FileText, Eye, Files, FileDown, PenTool } from "lucide-react";
+import { FileText, Eye, Files, FileDown, PenTool, Workflow, CalendarClock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA_LINKS } from "@/lib/utils";
 import featureImg1 from "@/assets/hero-section-feature-1.png";
 import featureImg2 from "@/assets/hero-section-feature-2.png";
 import featureImg3 from "@/assets/hero-section-feature-3.png";
 import featureImg4 from "@/assets/hero-section-feature-4.png";
-import featureImg5 from "@/assets/hero-section-feature-5.png";
+import featureImg5 from "@/assets/hero-section-feature-5.png"; 
+import featureImg6 from "@/assets/hero-section-feature-6.png";
+import featureImg7 from "@/assets/hero-section-feature-7.png";
 
 const carouselItems = [
   { icon: FileText, label: "Template Builder", description: "Design professional templates with drag-and-drop ease", image: featureImg1 },
@@ -15,6 +17,8 @@ const carouselItems = [
   { icon: Files, label: "Bulk Document Generation", description: "Generate documents in seconds", image: featureImg3 },
   { icon: FileDown, label: "One-Click PDF", description: "Create instant PDFs without any template setup", image: featureImg4 },
   { icon: PenTool, label: "Digital Signature", description: "Built-in e-signatures for seamless approvals", image: featureImg5 },
+  { icon: Workflow, label: "Flow-Triggered Document Generation", description: "Generate documents on any action like create, update, or delete across all objects", image: featureImg6 },
+  { icon: CalendarClock, label: "Template Scheduling", description: "Automate document generation with scheduled templates to improve efficiency and reduce manual effort.", image: featureImg7 },
 ];
 
 export const HeroSection = () => {
