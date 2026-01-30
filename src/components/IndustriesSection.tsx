@@ -94,17 +94,24 @@ export const IndustriesSection = () => {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: absoluteIndex * 0.05 }}
+                whileHover={{ y: -8 }}
                 onClick={() => handleIndustryClick(absoluteIndex)}
-                className={`group bg-card border rounded-xl p-4 text-center hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col items-center justify-center gap-3 ${
+                className={`group bg-card border rounded-xl p-4 text-center hover:shadow-lg transition-shadow duration-150 cursor-pointer flex flex-col items-center justify-center gap-3 ${
                   isSelected ? 'border-primary shadow-lg' : 'border-border hover:border-primary/30'
                 }`}
               >
-                <div className={`w-10 h-10 rounded-lg flex items-center justify-center mx-auto transition-colors duration-300 ${
-                  isSelected ? 'bg-primary/20' : 'bg-primary/10 group-hover:bg-primary/20'
-                }`}>
-                  <industry.icon className="w-5 h-5 text-primary" />
-                </div>
-                <p className="text-sm font-medium text-foreground">{industry.name}</p>
+                <motion.div 
+                  className={`w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-3 transition-all duration-150 ${
+                    isSelected ? 'bg-primary shadow-lg' : 'bg-primary/10 group-hover:bg-primary group-hover:shadow-lg'
+                  }`}
+                  whileHover={{ rotate: 10 }}
+                  transition={{ duration: 0.15 }}
+                >
+                  <industry.icon className={`w-5 h-5 transition-colors duration-150 ${
+                    isSelected ? 'text-primary-foreground' : 'text-primary group-hover:text-primary-foreground'
+                  }`} />
+                </motion.div>
+                <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-150">{industry.name}</p>
               </motion.div>
             );
           })}

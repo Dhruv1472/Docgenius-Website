@@ -113,15 +113,24 @@ export const FeaturesSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.25, delay: index * 0.03 }}
-                className="group bg-card border border-border rounded-2xl p-6 hover:shadow-xl hover:border-primary/30 hover:-translate-y-1 transition-all duration-300"
+                whileHover={{ y: -8 }}
+                className="group bg-card border border-border rounded-2xl p-6 hover:shadow-2xl hover:border-primary/40 transition-all duration-300 shine-effect cursor-default flex flex-col"
               >
-                <div className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
+                <motion.div 
+                  className="w-12 h-12 rounded-xl gradient-bg flex items-center justify-center mb-4"
+                  whileHover={{ scale: 1.2, rotate: 10 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
                   <feature.icon className="w-6 h-6 text-primary-foreground" />
-                </div>
-                <h3 className="text-lg font-bold font-display mb-2">{feature.title}</h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
+                </motion.div>
+                <h3 className="text-lg font-bold font-display mb-2 group-hover:text-primary transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed flex-grow">
                   {feature.description}
                 </p>
+                {/* Hover line indicator */}
+                <div className="mt-4 h-0.5 w-0 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-500" />
               </motion.div>
             ))}
           </AnimatePresence>

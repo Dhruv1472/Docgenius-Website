@@ -55,6 +55,7 @@
     --sidebar-accent-foreground: 210 40% 12%;
     --sidebar-border: 200 20% 90%;
     --sidebar-ring: 195 65% 30%;
+    scrollbar-width: none;
   }
 
   .dark {

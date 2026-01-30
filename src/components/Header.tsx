@@ -4,6 +4,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA_LINKS } from "@/lib/utils";
 import docgeniusLogo from "@/assets/docGeniusLogoSvg.svg";
+import { BookDemoModal } from "@/components/BookDemoDialog";
 
 const navLinks = [
   { label: "Home", href: "#home" },
@@ -18,6 +19,7 @@ const navLinks = [
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [bookDemoOpen, setBookDemoOpen] = useState(false);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
@@ -47,10 +49,8 @@ export const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="hero" size="default" asChild>
-              <a href={CTA_LINKS.bookDemo} target="_blank" rel="noreferrer">
-                Book Demo
-              </a>
+            <Button variant="hero" size="default" onClick={() => setBookDemoOpen(true)}>
+              Book Demo
             </Button>
             <Button variant="hero-outline" size="default" asChild>
               <a href={CTA_LINKS.freeTrial} target="_blank" rel="noreferrer">
@@ -92,10 +92,8 @@ export const Header = () => {
                   </a>
                 ))}
                 <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
-                  <Button variant="hero" size="lg" className="w-full" asChild>
-                    <a href={CTA_LINKS.bookDemo} target="_blank" rel="noreferrer">
-                      Book Demo
-                    </a>
+                  <Button variant="hero" size="lg" className="w-full" onClick={() => setBookDemoOpen(true)}>
+                    Book Demo
                   </Button>
                   <Button variant="hero-outline" size="lg" className="w-full" asChild>
                     <a href={CTA_LINKS.freeTrial} target="_blank" rel="noreferrer">
@@ -108,6 +106,8 @@ export const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      
+      <BookDemoModal isOpen={bookDemoOpen} onClose={() => setBookDemoOpen(false)} />
     </header>
   );
 };

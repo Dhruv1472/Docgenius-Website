@@ -2,7 +2,9 @@ import { motion } from "framer-motion";
 import { MousePointer, FileText, Send, Database, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA_LINKS } from "@/lib/utils";
+import { BookDemoModal } from "@/components/BookDemoDialog";
 import usecaseHero from "@/assets/case-hero.png";
+import { useState } from "react";
 
 const steps = [
   { icon: MousePointer, label: "Open Record", description: "Open any Salesforce record" },
@@ -13,6 +15,8 @@ const steps = [
 ];
 
 export const UseCaseSection = () => {
+  const [bookDemoOpen, setBookDemoOpen] = useState(false);
+  
   return (
     <section id="usecase" className="section-padding bg-surface">
       <div className="container-narrow">
@@ -92,10 +96,8 @@ export const UseCaseSection = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12"
         >
-          <Button variant="hero" size="lg" asChild>
-            <a href={CTA_LINKS.bookDemo} target="_blank" rel="noreferrer">
-              Book a Demo
-            </a>
+          <Button variant="hero" size="lg" onClick={() => setBookDemoOpen(true)}>
+            Book a Demo
           </Button>
           <Button variant="hero-outline" size="lg" asChild>
             <a href={CTA_LINKS.freeTrial} target="_blank" rel="noreferrer">
@@ -104,6 +106,8 @@ export const UseCaseSection = () => {
           </Button>
         </motion.div>
       </div>
+      
+      <BookDemoModal isOpen={bookDemoOpen} onClose={() => setBookDemoOpen(false)} />
     </section>
   );
 };
