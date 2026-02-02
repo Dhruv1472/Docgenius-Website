@@ -13,14 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import emailjs from '@emailjs/browser'; 
-
-// EmailJS Configuration
-const EMAILJS_CONFIG = {
-  serviceId: " ",
-  templateId: " ",
-  publicKey: " ",
-};
+import { sendDemoRequest } from "@/utils/emailService";
 
 interface BookDemoModalProps {
   isOpen: boolean;
@@ -140,78 +133,47 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
     setIsSubmitting(true);
 
     try {
-      const fullName = `${formData.firstName} ${formData.lastName}`;
-      
-      const result = await emailjs.send(
-        EMAILJS_CONFIG.serviceId,
-        EMAILJS_CONFIG.templateId,
-        {
-          from_name: fullName,
-          from_email: formData.email,
-          company: formData.company,
-          phone: formData.phone || "Not provided",
-          job_title: formData.jobTitle || "Not provided",
-          company_strength: formData.companyStrength || "Not provided",
-          country: formData.country,
-          message: formData.message || "No additional message",
-          to_email: "dhruv.k@mvclouds.com",
-        },
-        EMAILJS_CONFIG.publicKey
-      );
+      // Send email silently in background
+      const success = await sendDemoRequest(formData);
 
-      console.log('Email sent successfully:', result);
+      if (success) {
+        toast({
+          title: "Thank You!",
+          description: "Your demo request has been received. We will contact you soon.",
+        });
 
-      toast({
-        title: "Thank You!",
-        description: "Your demo request has been received. We will contact you soon.",
-      });
-
-      setIsSubmitting(false);
-      onClose();
-      
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        jobTitle: "",
-        company: "",
-        companyStrength: "",
-        country: "",
-        phone: "",
-        message: "",
-      });
-      setCaptchaAnswer("");
-      setErrors({});
+        // Reset form
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          jobTitle: "",
+          company: "",
+          companyStrength: "",
+          country: "",
+          phone: "",
+          message: "",
+        });
+        setCaptchaAnswer("");
+        setErrors({});
+        
+        onClose();
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to send demo request. Please try again.",
+          variant: "destructive",
+        });
+      }
     } catch (error) {
       console.error("Error sending demo request:", error);
-      // toast({
-      //   title: "Error",
-      //   description: "Failed to send demo request. Please try again.",
-      //   variant: "destructive",
-      // });
-      setIsSubmitting(false);
-
-      // remove below code once email send logic implemented
       toast({
-        title: "Thank You!",
-        description: "Your demo request has been received. We will contact you soon.",
+        title: "Error",
+        description: "Failed to send demo request. Please try again.",
+        variant: "destructive",
       });
-      onClose();
-      // Reset form
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        jobTitle: "",
-        company: "",
-        companyStrength: "",
-        country: "",
-        phone: "",
-        message: "",
-      });
-      setCaptchaAnswer("");
-      setErrors({});
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
