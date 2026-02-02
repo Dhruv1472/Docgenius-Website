@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -41,10 +42,16 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [captchaAnswer, setCaptchaAnswer] = useState("");
+  const [isMounted, setIsMounted] = useState(false);
   const [captchaNumbers] = useState({
     a: Math.floor(Math.random() * 10) + 1,
     b: Math.floor(Math.random() * 10) + 1,
   });
+
+  // Ensure portal target exists (client-side only)
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Manage body overflow when modal opens/closes
   useEffect(() => {
@@ -177,29 +184,29 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
     }
   };
 
-  return (
+  const modal = (
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Backdrop */}
+          {/* Backdrop (full viewport) */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-40"
+            className="fixed inset-0 z-[9998] bg-black/50 backdrop-blur-[2px]"
           />
 
-          {/* Modal */}
+          {/* Modal (true viewport bottom-right) */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 100 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 100 }}
+            initial={{ opacity: 0, scale: 0.98, x: 24, y: 24 }}
+            animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
+            exit={{ opacity: 0, scale: 0.98, x: 24, y: 24 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed inset-4 md:inset-auto md:left-1/2 md:top-1/2 md:-translate-x-1/2 md:-translate-y-1/2 md:max-w-2xl md:w-full bg-background rounded-2xl shadow-2xl z-50 overflow-hidden max-h-[90vh] flex flex-col"
+            className="fixed bottom-4 right-4 z-[9999] max-h-[90vh] w-[calc(100vw-2rem)] max-w-2xl overflow-hidden rounded-2xl bg-background shadow-2xl flex flex-col"
           >
             {/* Header */}
-            <div className="gradient-bg p-4 text-primary-foreground relative overflow-hidden">
+            <div className="gradient-bg p-4 text-primary-foreground relatfive overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)]" />
               <button
                 onClick={onClose}
@@ -411,4 +418,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
       )}
     </AnimatePresence>
   );
+
+  if (!isMounted) return null;
+  return createPortal(modal, document.body);
 };
