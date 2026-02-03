@@ -245,7 +245,7 @@ function ExpansionPanel({ industry, selectedIndex }: ExpansionPanelProps) {
   const Icon = getIndustryIcon(industry.iconKey);
 
   return (
-    <div className="bg-gradient-to-br from-card via-card to-primary/5 border border-primary/30 rounded-2xl p-8 mt-6 mb-6 shadow-2xl">
+    <div className="bg-gradient-to-br from-card via-card to-primary/5 border border-primary/30 rounded-2xl p-8 mt-6 mb-6">
       <div className="flex items-center gap-4 mb-8 pb-6 border-b border-primary/20">
         <div className="flex-shrink-0 w-16 h-16 rounded-xl gradient-bg flex items-center justify-center shadow-lg">
           {Icon && <Icon className="w-8 h-8 text-primary-foreground" />}
