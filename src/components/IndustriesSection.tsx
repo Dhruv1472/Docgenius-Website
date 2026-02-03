@@ -53,12 +53,12 @@ function IndustryCard({ industry, index, isSelected, onSelect }: IndustryCardPro
       transition={{ duration: 0.4, delay: index * 0.05 }}
       whileHover={{ y: -8 }}
       onClick={onSelect}
-      className={`group bg-card border rounded-xl p-4 text-center hover:shadow-lg transition-shadow duration-150 cursor-pointer flex flex-col items-center justify-center gap-3 ${
+      className={`group bg-card border rounded-xl p-4 text-center hover:shadow-lg transition-shadow duration-150 cursor-pointer flex flex-col items-center justify-center min-h-[120px] gap-3 ${
         isSelected ? "border-primary shadow-lg" : "border-border hover:border-primary/30"
       }`}
     >
       <motion.div
-        className={`w-10 h-10 rounded-lg flex items-center justify-center mx-auto mb-3 transition-all duration-150 ${
+        className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 transition-all duration-150 ${
           isSelected ? "bg-primary shadow-lg" : "bg-primary/10 group-hover:bg-primary group-hover:shadow-lg"
         }`}
         whileHover={{ rotate: 10 }}
@@ -72,7 +72,7 @@ function IndustryCard({ industry, index, isSelected, onSelect }: IndustryCardPro
           />
         )}
       </motion.div>
-      <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-150">
+      <p className="text-sm font-medium text-foreground group-hover:text-primary transition-colors duration-150 leading-tight text-center px-1 min-h-[2.5rem] flex items-center justify-center">
         {industry.name}
       </p>
     </motion.div>
@@ -87,9 +87,7 @@ type StepBlockProps = {
 // Individual Step Block Component used in UseCaseBlock for right left layout one stepblock for one usecase step
 function StepBlock({ step, stepIndex }: StepBlockProps) {
   const imageSrc = getIndustryImage(step.imageKey);
-  const [imageFailed, setImageFailed] = useState(false);
   const isReversed = stepIndex % 2 !== 0;
-  const showAltOnly = !imageSrc || imageFailed;
 
   return (
     <motion.div
@@ -102,20 +100,15 @@ function StepBlock({ step, stepIndex }: StepBlockProps) {
     >
       <motion.div
         className="w-full lg:w-1/2"
-        whileHover={{ scale: 1.03, rotate: isReversed ? -1 : 1 }}
+        whileHover={{ scale: 1.03}}
         transition={{ duration: 0.3 }}
       >
         <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/10 to-transparent min-h-[200px] flex items-center justify-center">
-          {showAltOnly ? (
-            <p className="text-muted-foreground text-sm p-6 text-center">{step.title}</p>
-          ) : (
-            <img
-              src={imageSrc}
-              alt={step.title}
-              className="w-full h-auto object-cover"
-              onError={() => setImageFailed(true)}
-            />
-          )}
+          <img
+            src={imageSrc}
+            alt={step.title}
+            className="w-full h-auto object-cover"
+          />
         </div>
       </motion.div>
 
