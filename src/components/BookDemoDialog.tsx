@@ -187,26 +187,33 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
   const modal = (
     <AnimatePresence>
       {isOpen && (
-        <>
-          {/* Backdrop (full viewport) */}
+        <div
+          className="fixed inset-0 z-[9998] flex items-end justify-end p-4 md:p-4"
+          style={{ pointerEvents: "none" }}
+          aria-hidden="true"
+        >
+          {/* Backdrop: only catches clicks outside modal; below modal in stack */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={onClose}
-            className="fixed inset-0 z-[9998] bg-black/50 backdrop-blur-[2px]"
+            className="absolute inset-0 z-0 bg-black/50 backdrop-blur-[2px]"
+            style={{ pointerEvents: "auto" }}
           />
 
-          {/* Modal (true viewport bottom-right) */}
+          {/* Modal: on top, receives all clicks inside it */}
           <motion.div
             initial={{ opacity: 0, scale: 0.98, x: 24, y: 24 }}
             animate={{ opacity: 1, scale: 1, x: 0, y: 0 }}
             exit={{ opacity: 0, scale: 0.98, x: 24, y: 24 }}
             transition={{ type: "spring", damping: 25, stiffness: 300 }}
-            className="fixed bottom-4 right-4 z-[9999] max-h-[90vh] w-[calc(100vw-2rem)] max-w-2xl overflow-hidden rounded-2xl bg-background shadow-2xl flex flex-col"
+            className="relative z-10 max-h-[90vh] w-full max-w-2xl overflow-hidden rounded-2xl bg-background shadow-2xl flex flex-col"
+            style={{ pointerEvents: "auto" }}
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Header */}
-            <div className="gradient-bg p-4 text-primary-foreground relatfive overflow-hidden">
+            <div className="gradient-bg p-4 text-primary-foreground relative overflow-hidden">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(255,255,255,0.1),transparent)]" />
               <button
                 onClick={onClose}
@@ -414,7 +421,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
               </div>
             </form>
           </motion.div>
-        </>
+        </div>
       )}
     </AnimatePresence>
   );
