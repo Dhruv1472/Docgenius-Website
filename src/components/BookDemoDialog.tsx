@@ -311,7 +311,11 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
                     id="phone"
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) => handleInputChange("phone", e.target.value)}
+                    onChange={(e) => {
+                      // Only allow numbers, +, -, spaces, and parentheses
+                      const filteredValue = e.target.value.replace(/[^0-9+\-\s()]/g, '');
+                      handleInputChange("phone", filteredValue);
+                    }}
                     placeholder="+1 (555) 000-0000"
                     className={`input-hover-effect ${errors.phone ? "border-red-500" : ""}`}
                   />

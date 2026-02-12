@@ -16,17 +16,17 @@ import {
 
 import type { Industry } from "./types";
 import { realEstate, realEstateImages } from "./realEstate";
-import { financialServices } from "./financialServices";
+import { financialServices, financialServicesImages } from "./financialServices";
 import { itSoftware } from "./itSoftware";
-import { healthcare } from "./healthcare";
-import { hrTeams } from "./hrTeams";
+import { healthcare, healthcareImages } from "./healthcare";
+import { hrTeams, hrTeamsImages } from "./hrTeams";
 import { manufacturing } from "./manufacturing";
-import { legalProfessional } from "./legalProfessional";
-import { educationTraining } from "./educationTraining";
-import { retailEcommerce } from "./retailEcommerce";
-import { logisticsSupplyChain } from "./logisticsSupplyChain";
-import { governmentPublic } from "./governmentPublic";
-import { customerSupport } from "./customerSupport";
+import { legalProfessional, legalProfessionalImages } from "./legalProfessional";
+import { educationTraining, EducationTrainingImages } from "./educationTraining";
+import { retailEcommerce, retailEcommerceImages } from "./retailEcommerce";
+import { logisticsSupplyChain, logisticsSupplyChainImages } from "./logisticsSupplyChain";
+import { governmentPublic, governmentPublicImages} from "./governmentPublic";
+import { customerSupport, customerSupportImages } from "./customerSupport";
 
 // Re-export types
 export type { Industry, UseCase, UseCaseStep, AdditionalInfo } from "./types";
@@ -70,6 +70,15 @@ export function getIndustryIcon(iconKey: string): LucideIcon | undefined {
 // Images: merge per-industry image maps (no placeholder)
 const allImages: Record<string, string> = {
   ...realEstateImages,
+  ...financialServicesImages,
+  ...healthcareImages,
+  ...hrTeamsImages,
+  ...legalProfessionalImages,
+  ...EducationTrainingImages,
+  ...retailEcommerceImages,
+  ...logisticsSupplyChainImages,
+  ...governmentPublicImages,
+  ...customerSupportImages,
   // Add more when other industries have images: ...financialServicesImages, etc.
 };
 

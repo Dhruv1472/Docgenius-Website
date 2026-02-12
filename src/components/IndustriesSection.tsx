@@ -113,7 +113,7 @@ function StepBlock({ step, stepIndex }: StepBlockProps) {
       </motion.div>
 
       <div className="w-full lg:w-1/2 space-y-4">
-        <h5 className="text-xl md:text-2xl font-bold font-display mb-4 text-foreground">
+        <h5 className="text-lg md:text-xl font-bold font-display mb-4 text-foreground">
           {step.title}
         </h5>
         <div className="space-y-4">
@@ -154,10 +154,6 @@ function InfoBox({ label, content, delay, variant = "default" }: InfoBoxProps) {
     primary: "bg-primary/5 border-primary/20",
   };
   const x = variant === "muted" ? -20 : 20;
-  const contentClass =
-    variant === "muted"
-      ? "text-sm text-muted-foreground leading-relaxed"
-      : "text-sm text-foreground font-medium leading-relaxed";
 
   return (
     <motion.div
@@ -174,7 +170,7 @@ function InfoBox({ label, content, delay, variant = "default" }: InfoBoxProps) {
         </div>
         <div className="flex-1">
           <p className="text-xs font-semibold text-primary/70 mb-1">{label}:</p>
-          <p className={contentClass}>{content}</p>
+          <p className="text-sm text-foreground font-medium leading-relaxed">{content}</p>
         </div>
       </div>
     </motion.div>
@@ -215,7 +211,7 @@ function UseCaseBlock({ useCase, useCaseIndex }: UseCaseBlockProps) {
             {useCase.scenario}
           </p>
         </motion.div>
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
@@ -224,7 +220,7 @@ function UseCaseBlock({ useCase, useCaseIndex }: UseCaseBlockProps) {
           <p className="text-sm font-semibold text-primary mb-3">The Solution:</p>
           <p className="text-lg md:text-xl font-semibold text-foreground mb-2">{useCase.solution}</p>
           <p className="text-sm md:text-base text-muted-foreground">{useCase.description}</p>
-        </motion.div>
+        </motion.div> */}
       </div>
       <div className="space-y-12 mt-12">
         {useCase.steps.map((step, stepIdx) => (

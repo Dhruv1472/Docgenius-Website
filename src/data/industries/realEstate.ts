@@ -24,7 +24,7 @@ export const realEstate: Industry = {
     {
       title: "Automated Lease Agreements & Property Sales Contracts",
       scenario:
-        '"Prime Estates," a real estate agency using Salesforce, struggles with the manual creation of Lease Agreements and Sales Contracts. Their agents waste time copy-pasting client names, property addresses, and terms into Word documents. They often forget to attach property photos, make errors in rental amounts, and face delays in getting signatures.',
+        'Prime Estates," a real estate agency using Salesforce, struggles with the manual creation of Lease Agreements and Sales Contracts. Their agents waste time copy-pasting client names, property addresses, and terms into Word documents. They often forget to attach property photos, make errors in rental amounts, and face delays in getting signatures.',
       solution: "DocGenius Implementation",
       description:
         "Here is how DocGenius streamlines the entire lifecycle of a property transaction:",
@@ -32,7 +32,7 @@ export const realEstate: Industry = {
         {
           title: "1. Template Creation & Organization (Admin Setup)",
           featureUsed:
-            "Template Editor (Google Doc/Internal Editor) & Folder-based Management (Point 1 & 11).",
+            "Template Editor (Google Doc/Internal Editor) & Folder-based Management.",
           workflow:
             'The Admin creates a master "Residential Lease Agreement" template. They use the Folder-based management to keep "Commercial Leases," "Residential Sales," and "Renewal Notices" organized separately.',
           additionalInfo: [
@@ -46,7 +46,7 @@ export const realEstate: Industry = {
         },
         {
           title: "2. Visuals & Dynamic Content",
-          featureUsed: "Image Support & Child Object Mapping (Point 1).",
+          featureUsed: "Image Support & Child Object Mapping.",
           workflow:
             "The template is configured to automatically pull the primary photo of the house from Salesforce (or an external URL) and place it at the top of the contract.",
           additionalInfo: [
@@ -60,7 +60,7 @@ export const realEstate: Industry = {
         },
         {
           title: "3. One-Click Generation for Agents",
-          featureUsed: "Default Document Process / Button Generation (Point 8 & 10).",
+          featureUsed: "Default Document Process / Button Generation.",
           workflow:
             'An agent is on a Property Record page in Salesforce. Instead of manually typing a contract, they simply click a custom "Generate Lease" button.',
           additionalInfo: [
@@ -74,7 +74,7 @@ export const realEstate: Industry = {
         },
         {
           title: '4. The "Negotiation" Phase (Crucial Differentiator)',
-          featureUsed: "Real-time Document Editor (Point 12).",
+          featureUsed: "Real-time Document Editor.",
           workflow:
             "During the preview, the agent realizes the client negotiated a slightly lower rent or a different move-in date. Instead of going back to Salesforce to update the record and re-generate the whole document, the agent uses the Real-time Document Editor. They modify the specific rent value directly in the preview.",
           additionalInfo: [
@@ -88,7 +88,7 @@ export const realEstate: Industry = {
         },
         {
           title: "5. Closing the Deal: Integrated E-Signature",
-          featureUsed: "Signature Function (Point 13).",
+          featureUsed: "Signature Function.",
           workflow:
             "Once the document is perfect, the agent uses the Signature Key mapping. The document is sent directly to the tenant's email. The tenant opens it, signs using the user-friendly signature pad, and the signed document is instantly routed back to Salesforce.",
           imageKey: "realEstate5",
@@ -96,16 +96,31 @@ export const realEstate: Industry = {
         {
           title: "6. Storage, Distribution & Bulk Operations",
           featureUsed:
-            "External Storage Integration, Email & Bulk Document Generation (Point 3, 4, 9, & 10).",
+            "External Storage Integration & Email",
           workflow:
-            'The signed PDF is automatically attached to the Salesforce Opportunity record under "Files." A copy is simultaneously pushed to the agency\'s Google Drive or Dropbox into a folder named after the property address (using the Dynamic Naming feature). For seasonal tasks, the Property Manager can select 50 tenants whose leases are expiring and use Bulk Generation to create all renewal letters in one click.',
-          additionalInfo: [
-            {
-              label: "Storage Options and Client Distribution",
-              content:
-                'The signed PDF is automatically attached to the Salesforce Opportunity record under "Files."',
-            },
-          ],
+            'Internal: The signed PDF is automatically attached to the Salesforce Opportunity record under "Files." || External: A copy is simultaneously pushed to the agency’s Google Drive or Dropbox into a folder named after the property address (using the Dynamic Naming feature). || Client Copy: The agent emails the final PDF to the tenant directly from the DocGenius interface.',
+          // additionalInfo: [
+          //   {
+          //     label: "Storage Options and Client Distribution",
+          //     content:
+          //       'The signed PDF is automatically attached to the Salesforce Opportunity record under "Files."',
+          //   },
+          // ],
+          imageKey: "realEstate6",
+        },
+        {
+          title: "7. Bulk Renewal Notices (Seasonal Activity)",
+          featureUsed:
+            "Bulk Document Generation",
+          workflow:
+            'At the end of the month, the Property Manager selects 50 tenants whose leases are expiring. Using Bulk Generation, they select the "Lease Renewal Offer" template. DocGenius generates all 50 letters in one click and delivers them as a ZIP file (or individual downloads) to be mailed or emailed out.',
+          // additionalInfo: [
+          //   {
+          //     label: "Storage Options and Client Distribution",
+          //     content:
+          //       'The signed PDF is automatically attached to the Salesforce Opportunity record under "Files."',
+          //   },
+          // ],
           imageKey: "realEstate6",
         },
       ],
