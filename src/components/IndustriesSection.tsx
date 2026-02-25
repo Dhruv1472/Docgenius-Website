@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2 } from "lucide-react";
 import {
@@ -47,6 +47,7 @@ function IndustryCard({ industry, index, isSelected, onSelect }: IndustryCardPro
 
   return (
     <motion.div
+      id={`industry-card-${index}`}
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
@@ -272,9 +273,29 @@ function ExpansionPanel({ industry, selectedIndex }: ExpansionPanelProps) {
 export function IndustriesSection() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const itemsPerRow = useItemsPerRow();
+  const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const handleIndustryClick = (index: number) => {
-    setSelectedIndex(selectedIndex === index ? null : index);
+    const isClosing = selectedIndex === index;
+    setSelectedIndex(isClosing ? null : index);
+
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+      scrollTimeoutRef.current = null;
+    }
+
+    if (!isClosing) {
+      // Wait for previous panel string/collapse animation to finish before scrolling
+      scrollTimeoutRef.current = setTimeout(() => {
+        const element = document.getElementById(`industry-card-${index}`);
+        if (element) {
+          element.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 410); // Matches transition duration 0.4s + 10ms pad
+    }
   };
 
   useEffect(() => {
@@ -306,6 +327,7 @@ export function IndustriesSection() {
           {selectedInRow && selectedIndex !== null && (
             <motion.div
               key={`expansion-${rowIndex}`}
+              id={`expanded-panel-${rowIndex}`}
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
@@ -322,7 +344,7 @@ export function IndustriesSection() {
 
   // Main Industries Section Component without expansion panel
   return (
-    <section id="industries" className="section-padding">
+    <section id="industries" className="section-padding" style={{ overflowAnchor: "none" }}>
       <div className="container-narrow">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
