@@ -1,18 +1,11 @@
 import type { Industry } from "./types";
 
-import Gov1 from "@/assets/Real Estate/Real1.png";
-import Gov2 from "@/assets/Real Estate/Real2.png";
-import Gov3 from "@/assets/Real Estate/Real3.png";
-import Gov4 from "@/assets/Real Estate/Real4.png";
-import Gov5 from "@/assets/Real Estate/Real5.png";
-import Gov6 from "@/assets/Real Estate/Real6.png";
-
-// import Gov1 from "@/assets/Government Public/Gov1.png";
-// import Gov2 from "@/assets/Government Public/Gov2.png";
-// import Gov3 from "@/assets/Government Public/Gov3.png";
-// import Gov4 from "@/assets/Government Public/Gov4.png";
-// import Gov5 from "@/assets/Government Public/Gov5.png";
-// import Gov6 from "@/assets/Government Public/Gov6.png";
+import Gov1 from "@/assets/Government Public/Gov1.png";
+import Gov2 from "@/assets/Government Public/Gov2.png";
+import Gov3 from "@/assets/Government Public/Gov3.png";
+import Gov4 from "@/assets/Government Public/Gov4.png";
+import Gov5 from "@/assets/Government Public/Gov5.png";
+import Gov6 from "@/assets/Government Public/Gov6.png";
 
 export const governmentPublicImages: Record<string, string> = {
   government1: Gov1,

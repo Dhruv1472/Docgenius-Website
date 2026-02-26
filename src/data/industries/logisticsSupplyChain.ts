@@ -1,18 +1,12 @@
 import type { Industry } from "./types";
 
-import Logistics1 from "@/assets/Real Estate/Real1.png";
-import Logistics2 from "@/assets/Real Estate/Real2.png";
-import Logistics3 from "@/assets/Real Estate/Real3.png";
-import Logistics4 from "@/assets/Real Estate/Real4.png";
-import Logistics5 from "@/assets/Real Estate/Real5.png";
-import Logistics6 from "@/assets/Real Estate/Real6.png";
-
-// import Logistics1 from "@/assets/Logistics Supply Chain/Logistics1.png";
-// import Logistics2 from "@/assets/Logistics Supply Chain/Logistics2.png";
-// import Logistics3 from "@/assets/Logistics Supply Chain/Logistics3.png";
-// import Logistics4 from "@/assets/Logistics Supply Chain/Logistics4.png";
-// import Logistics5 from "@/assets/Logistics Supply Chain/Logistics5.png";
-// import Logistics6 from "@/assets/Logistics Supply Chain/Logistics6.png";
+import Logistics1 from "@/assets/Logistics Supply Chain/Logistics1.png";
+import Logistics2 from "@/assets/Logistics Supply Chain/Logistics2.png";
+import Logistics3 from "@/assets/Logistics Supply Chain/Logistics3.png";
+import Logistics4 from "@/assets/Logistics Supply Chain/Logistics4.png";
+import Logistics5 from "@/assets/Logistics Supply Chain/Logistics5.png";
+import Logistics6 from "@/assets/Logistics Supply Chain/Logistics6.png";
+import Logistics7 from "@/assets/Logistics Supply Chain/Logistics7.png";
 
 export const logisticsSupplyChainImages: Record<string, string> = {
   logistics1: Logistics1,
@@ -21,6 +15,7 @@ export const logisticsSupplyChainImages: Record<string, string> = {
   logistics4: Logistics4,
   logistics5: Logistics5,
   logistics6: Logistics6,
+  logistics7: Logistics7,
 };
 
 export const logisticsSupplyChain: Industry = {
@@ -83,7 +78,7 @@ export const logisticsSupplyChain: Industry = {
           featureUsed: "External Storage Integration (AWS/OneDrive).",
           workflow:
             'Logistics documents are heavy (scans, photos) and must be kept for legal reasons in case of damaged goods claims. DocGenius is set to automatically route all "Signed PODs" and "BOLs" to a folder in AWS S3 labeled by [Truck Number] / [Date]. This keeps Salesforce storage costs low while ensuring the legal team can find any document from 2024 instantly.',
-          imageKey: "logistics6",
+          imageKey: "logistics7",
         },
       ],
     },

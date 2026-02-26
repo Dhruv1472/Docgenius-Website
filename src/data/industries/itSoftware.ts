@@ -1,18 +1,11 @@
 import type { Industry } from "./types";
 
-// import ItSoftware1 from "@/assets/It Software/ItSoftware1.png";
-// import ItSoftware2 from "@/assets/It Software/ItSoftware2.png";
-// import ItSoftware3 from "@/assets/It Software/ItSoftware3.png";
-// import ItSoftware4 from "@/assets/It Software/ItSoftware4.png";
-// import ItSoftware5 from "@/assets/It Software/ItSoftware5.png";
-// import ItSoftware6 from "@/assets/It Software/ItSoftware6.png";
-
-import ItSoftware1 from "@/assets/Real Estate/Real1.png";
-import ItSoftware2 from "@/assets/Real Estate/Real1.png";
-import ItSoftware3 from "@/assets/Real Estate/Real1.png";
-import ItSoftware4 from "@/assets/Real Estate/Real1.png";
-import ItSoftware5 from "@/assets/Real Estate/Real1.png";
-import ItSoftware6 from "@/assets/Real Estate/Real1.png";
+import ItSoftware1 from "@/assets/It Software/ItSoftware1.png";
+import ItSoftware2 from "@/assets/It Software/ItSoftware2.png";
+import ItSoftware3 from "@/assets/It Software/ItSoftware3.png";
+import ItSoftware4 from "@/assets/It Software/ItSoftware4.png";
+import ItSoftware5 from "@/assets/It Software/ItSoftware5.png";
+import ItSoftware6 from "@/assets/It Software/ItSoftware6.png";
 
 export const itSoftwareImages: Record<string, string> = {
   itSoftware1: ItSoftware1,

@@ -1,18 +1,11 @@
 import type { Industry } from "./types";
 
-// import FinancialServices1 from "@/assets/Financial Services/FinancialServices1.png";
-// import FinancialServices2 from "@/assets/Financial Services/FinancialServices2.png";
-// import FinancialServices3 from "@/assets/Financial Services/FinancialServices3.png";
-// import FinancialServices4 from "@/assets/Financial Services/FinancialServices4.png";
-// import FinancialServices5 from "@/assets/Financial Services/FinancialServices5.png";
-// import FinancialServices6 from "@/assets/Financial Services/FinancialServices6.png";
-
-import FinancialServices1 from "@/assets/Real Estate/Real1.png";
-import FinancialServices2 from "@/assets/Real Estate/Real1.png";
-import FinancialServices3 from "@/assets/Real Estate/Real1.png";
-import FinancialServices4 from "@/assets/Real Estate/Real1.png";
-import FinancialServices5 from "@/assets/Real Estate/Real1.png";
-import FinancialServices6 from "@/assets/Real Estate/Real1.png";
+import FinancialServices1 from "@/assets/Financial Services/FinancialServices1.png";
+import FinancialServices2 from "@/assets/Financial Services/FinancialServices2.png";
+import FinancialServices3 from "@/assets/Financial Services/FinancialServices3.png";
+import FinancialServices4 from "@/assets/Financial Services/FinancialServices4.png";
+import FinancialServices5 from "@/assets/Financial Services/FinancialServices5.png";
+import FinancialServices6 from "@/assets/Financial Services/FinancialServices6.png";
 
 export const financialServicesImages: Record<string, string> = {
   financialServices1: FinancialServices1,

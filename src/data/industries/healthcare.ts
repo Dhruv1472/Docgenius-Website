@@ -1,18 +1,11 @@
 import type { Industry } from "./types";
 
-// import Healthcare1 from "@/assets/Healthcare/Healthcare1.png";
-// import Healthcare2 from "@/assets/Healthcare/Healthcare2.png";
-// import Healthcare3 from "@/assets/Healthcare/Healthcare3.png";
-// import Healthcare4 from "@/assets/Healthcare/Healthcare4.png";
-// import Healthcare5 from "@/assets/Healthcare/Healthcare5.png";
-// import Healthcare6 from "@/assets/Healthcare/Healthcare6.png";
-
-import Healthcare1 from "@/assets/Real Estate/Real1.png";
-import Healthcare2 from "@/assets/Real Estate/Real1.png";
-import Healthcare3 from "@/assets/Real Estate/Real1.png";
-import Healthcare4 from "@/assets/Real Estate/Real1.png";
-import Healthcare5 from "@/assets/Real Estate/Real1.png";
-import Healthcare6 from "@/assets/Real Estate/Real1.png";
+import Healthcare1 from "@/assets/Healthcare/Healthcare1.png";
+import Healthcare2 from "@/assets/Healthcare/Healthcare2.png";
+import Healthcare3 from "@/assets/Healthcare/Healthcare3.png";
+import Healthcare4 from "@/assets/Healthcare/Healthcare4.png";
+import Healthcare5 from "@/assets/Healthcare/Healthcare5.png";
+import Healthcare6 from "@/assets/Healthcare/Healthcare6.png";
 
 export const healthcareImages: Record<string, string> = {
   healthcare1: Healthcare1,

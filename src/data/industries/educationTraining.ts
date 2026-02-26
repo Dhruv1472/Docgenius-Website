@@ -1,18 +1,11 @@
 import type { Industry } from "./types";
 
-import EduTrain1 from "@/assets/Real Estate/Real1.png";
-import EduTrain2 from "@/assets/Real Estate/Real2.png";
-import EduTrain3 from "@/assets/Real Estate/Real3.png";
-import EduTrain4 from "@/assets/Real Estate/Real4.png";
-import EduTrain5 from "@/assets/Real Estate/Real5.png";
-import EduTrain6 from "@/assets/Real Estate/Real6.png";
-
-// import EduTrain1 from "@/assets/Education Training/EduTrain1.png";
-// import EduTrain2 from "@/assets/Education Training/EduTrain2.png";
-// import EduTrain3 from "@/assets/Education Training/EduTrain3.png";
-// import EduTrain4 from "@/assets/Education Training/EduTrain4.png";
-// import EduTrain5 from "@/assets/Education Training/EduTrain5.png";
-// import EduTrain6 from "@/assets/Education Training/EduTrain6.png";
+import EduTrain1 from "@/assets/Education Training/EduTrain1.png";
+import EduTrain2 from "@/assets/Education Training/EduTrain2.png";
+import EduTrain3 from "@/assets/Education Training/EduTrain3.png";
+import EduTrain4 from "@/assets/Education Training/EduTrain4.png";
+import EduTrain5 from "@/assets/Education Training/EduTrain5.png";
+import EduTrain6 from "@/assets/Education Training/EduTrain6.png";
 
 export const EducationTrainingImages: Record<string, string> = {
   EducationTraining1: EduTrain1,

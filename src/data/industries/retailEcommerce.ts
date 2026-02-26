@@ -1,18 +1,11 @@
 import type { Industry } from "./types";
 
-import ReatilEcom1 from "@/assets/Real Estate/Real1.png";
-import ReatilEcom2 from "@/assets/Real Estate/Real2.png";
-import ReatilEcom3 from "@/assets/Real Estate/Real3.png";
-import ReatilEcom4 from "@/assets/Real Estate/Real4.png";
-import ReatilEcom5 from "@/assets/Real Estate/Real5.png";
-import ReatilEcom6 from "@/assets/Real Estate/Real6.png";
-
-// import ReatilEcom1 from "@/assets/Retail Ecommerce/ReatilEcom1.png";
-// import ReatilEcom2 from "@/assets/Retail Ecommerce/ReatilEcom2.png";
-// import ReatilEcom3 from "@/assets/Retail Ecommerce/ReatilEcom3.png";
-// import ReatilEcom4 from "@/assets/Retail Ecommerce/ReatilEcom4.png";
-// import ReatilEcom5 from "@/assets/Retail Ecommerce/ReatilEcom5.png";
-// import ReatilEcom6 from "@/assets/Retail Ecommerce/ReatilEcom6.png";
+import ReatilEcom1 from "@/assets/Retail Ecommerce/ReatilEcom1.png";
+import ReatilEcom2 from "@/assets/Retail Ecommerce/ReatilEcom2.png";
+import ReatilEcom3 from "@/assets/Retail Ecommerce/ReatilEcom3.png";
+import ReatilEcom4 from "@/assets/Retail Ecommerce/ReatilEcom4.png";
+import ReatilEcom5 from "@/assets/Retail Ecommerce/ReatilEcom5.png";
+import ReatilEcom6 from "@/assets/Retail Ecommerce/ReatilEcom6.png";
 
 export const retailEcommerceImages: Record<string, string> = {
   retailEcommerce1: ReatilEcom1,

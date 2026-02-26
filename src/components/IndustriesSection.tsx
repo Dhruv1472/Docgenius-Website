@@ -104,7 +104,7 @@ function StepBlock({ step, stepIndex }: StepBlockProps) {
         whileHover={{ scale: 1.03}}
         transition={{ duration: 0.3 }}
       >
-        <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/10 to-transparent min-h-[200px] flex items-center justify-center">
+        <div className="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-primary/30 bg-gradient-to-br from-primary/10 to-transparent flex items-center justify-center">
           <img
             src={imageSrc}
             alt={step.title}

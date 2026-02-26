@@ -1,18 +1,11 @@
 import type { Industry } from "./types";
 
-import Manufacturing1 from "@/assets/Real Estate/Real1.png";
-import Manufacturing2 from "@/assets/Real Estate/Real2.png";
-import Manufacturing3 from "@/assets/Real Estate/Real3.png";
-import Manufacturing4 from "@/assets/Real Estate/Real4.png";
-import Manufacturing5 from "@/assets/Real Estate/Real5.png";
-import Manufacturing6 from "@/assets/Real Estate/Real6.png";
-
-// import Manufacturing1 from "@/assets/Manufacturing/Manu1.png";
-// import Manufacturing2 from "@/assets/Manufacturing/Manu2.png";
-// import Manufacturing3 from "@/assets/Manufacturing/Manu3.png";
-// import Manufacturing4 from "@/assets/Manufacturing/Manu4.png";
-// import Manufacturing5 from "@/assets/Manufacturing/Manu5.png";
-// import Manufacturing6 from "@/assets/Manufacturing/Manu6.png";
+import Manufacturing1 from "@/assets/Manufacturing/Manu1.png";
+import Manufacturing2 from "@/assets/Manufacturing/Manu2.png";
+import Manufacturing3 from "@/assets/Manufacturing/Manu3.png";
+import Manufacturing4 from "@/assets/Manufacturing/Manu4.png";
+import Manufacturing5 from "@/assets/Manufacturing/Manu5.png";
+import Manufacturing6 from "@/assets/Manufacturing/Manu6.png";
 
 export const manufacturingImages: Record<string, string> = {
   manufacturing1: Manufacturing1,

@@ -1,18 +1,11 @@
 import type { Industry } from "./types";
 
-import HR1 from "@/assets/Real Estate/Real1.png";
-import HR2 from "@/assets/Real Estate/Real2.png";
-import HR3 from "@/assets/Real Estate/Real3.png";
-import HR4 from "@/assets/Real Estate/Real4.png";
-import HR5 from "@/assets/Real Estate/Real5.png";
-import HR6 from "@/assets/Real Estate/Real6.png";
-
-// import HR1 from "@/assets/HR/hr1.png";
-// import HR2 from "@/assets/HR/hr2.png";
-// import HR3 from "@/assets/HR/hr3.png";
-// import HR4 from "@/assets/HR/hr4.png";
-// import HR5 from "@/assets/HR/hr5.png";
-// import HR6 from "@/assets/HR/hr6.png";
+import HR1 from "@/assets/HR/hr1.png";
+import HR2 from "@/assets/HR/hr2.png";
+import HR3 from "@/assets/HR/hr3.png";
+import HR4 from "@/assets/HR/hr4.png";
+import HR5 from "@/assets/HR/hr5.png";
+import HR6 from "@/assets/HR/hr6.png";
 
 export const hrTeamsImages: Record<string, string> = {
   hr1: HR1,

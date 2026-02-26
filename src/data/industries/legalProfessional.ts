@@ -1,18 +1,11 @@
 import type { Industry } from "./types";
 
-import Legal1 from "@/assets/Real Estate/Real1.png";
-import Legal2 from "@/assets/Real Estate/Real2.png";
-import Legal3 from "@/assets/Real Estate/Real3.png";
-import Legal4 from "@/assets/Real Estate/Real4.png";
-import Legal5 from "@/assets/Real Estate/Real5.png";
-import Legal6 from "@/assets/Real Estate/Real6.png";
-
-// import Legal1 from "@/assets/Legal Professional/Legal1.png";
-// import Legal2 from "@/assets/Legal Professional/Legal2.png";
-// import Legal3 from "@/assets/Legal Professional/Legal3.png";
-// import Legal4 from "@/assets/Legal Professional/Legal4.png";
-// import Legal5 from "@/assets/Legal Professional/Legal5.png";
-// import Legal6 from "@/assets/Legal Professional/Legal6.png";
+import Legal1 from "@/assets/Legal Professional/Legal1.png";
+import Legal2 from "@/assets/Legal Professional/Legal2.png";
+import Legal3 from "@/assets/Legal Professional/Legal3.png";
+import Legal4 from "@/assets/Legal Professional/Legal4.png";
+import Legal5 from "@/assets/Legal Professional/Legal5.png";
+import Legal6 from "@/assets/Legal Professional/Legal6.png";
 
 export const legalProfessionalImages: Record<string, string> = {
   legalProfessional1: Legal1,

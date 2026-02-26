@@ -1,18 +1,12 @@
 import type { Industry } from "./types";
 
-import Support1 from "@/assets/Real Estate/Real1.png";
-import Support2 from "@/assets/Real Estate/Real2.png";
-import Support3 from "@/assets/Real Estate/Real3.png";
-import Support4 from "@/assets/Real Estate/Real4.png";
-import Support5 from "@/assets/Real Estate/Real5.png";
-import Support6 from "@/assets/Real Estate/Real6.png";
-
-// import Support1 from "@/assets/Customer Support/Support1.png";
-// import Support2 from "@/assets/Customer Support/Support2.png";
-// import Support3 from "@/assets/Customer Support/Support3.png";
-// import Support4 from "@/assets/Customer Support/Support4.png";
-// import Support5 from "@/assets/Customer Support/Support5.png";
-// import Support6 from "@/assets/Customer Support/Support6.png";
+import Support1 from "@/assets/Customer Support/Support1.png";
+import Support2 from "@/assets/Customer Support/Support2.png";
+import Support3 from "@/assets/Customer Support/Support3.png";
+import Support4 from "@/assets/Customer Support/Support4.png";
+import Support5 from "@/assets/Customer Support/Support5.png";
+import Support6 from "@/assets/Customer Support/Support6.png";
+import Support7 from "@/assets/Customer Support/Support6.png";
 
 export const customerSupportImages: Record<string, string> = {
   customerSupport1: Support1,
@@ -21,6 +15,7 @@ export const customerSupportImages: Record<string, string> = {
   customerSupport4: Support4,
   customerSupport5: Support5,
   customerSupport6: Support6,
+  customerSupport7: Support7,
 };
 
 export const customerSupport: Industry = {
@@ -83,7 +78,7 @@ export const customerSupport: Industry = {
           featureUsed: "External Storage Integration.",
           workflow:
             'To prevent Salesforce storage limits from exploding with thousands of PDF attachments, DocGenius automatically pushes all closed "RMA Forms" and "Service Reports" to a Google Drive folder named "Support_Archives_2025," keeping the CRM fast and lightweight.',
-          imageKey: "customerSupport6",
+          imageKey: "customerSupport7",
         },
       ],
     },
