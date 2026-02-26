@@ -17,10 +17,10 @@ import {
 import type { Industry } from "./types";
 import { realEstate, realEstateImages } from "./realEstate";
 import { financialServices, financialServicesImages } from "./financialServices";
-import { itSoftware } from "./itSoftware";
+import { itSoftware, itSoftwareImages } from "./itSoftware";
 import { healthcare, healthcareImages } from "./healthcare";
 import { hrTeams, hrTeamsImages } from "./hrTeams";
-import { manufacturing } from "./manufacturing";
+import { manufacturing, manufacturingImages } from "./manufacturing";
 import { legalProfessional, legalProfessionalImages } from "./legalProfessional";
 import { educationTraining, EducationTrainingImages } from "./educationTraining";
 import { retailEcommerce, retailEcommerceImages } from "./retailEcommerce";
@@ -79,7 +79,8 @@ const allImages: Record<string, string> = {
   ...logisticsSupplyChainImages,
   ...governmentPublicImages,
   ...customerSupportImages,
-  // Add more when other industries have images: ...financialServicesImages, etc.
+  ...manufacturingImages,
+  ...itSoftwareImages,
 };
 
 export function getIndustryImage(imageKey: string): string | undefined {

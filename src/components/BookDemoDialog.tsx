@@ -26,22 +26,18 @@ const countries = [
   "Canada", "Chile", "China", "Colombia", "Czech Republic", "Denmark",
   "Egypt", "France", "Germany", "Greece", "Hong Kong", "Hungary", "India",
   "Indonesia", "Ireland", "Israel", "Italy", "Japan", "Kenya", "Malaysia",
-  "Mexico", "Netherlands", "New Zealand", "Nigeria", "Norway", "Other",
+  "Mexico", "Netherlands", "New Zealand", "Nigeria", "Norway",
   "Pakistan", "Philippines", "Poland", "Portugal", "Romania", "Saudi Arabia",
   "Singapore", "South Africa", "South Korea", "Spain", "Sri Lanka", "Sweden",
   "Switzerland", "Taiwan", "Thailand", "Turkey", "United Arab Emirates",
-  "United Kingdom", "United States", "Vietnam"
-];
-
-const companyStrengths = [
-  "1-10", "11-50", "51-200", "201-500", "501-1000", "1000+"
+  "United Kingdom", "United States", "Vietnam", "Other",
 ];
 
 export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [captchaAnswer, setCaptchaAnswer] = useState("");
+  // const [captchaAnswer, setCaptchaAnswer] = useState("");
   const [isMounted, setIsMounted] = useState(false);
   const [captchaNumbers] = useState({
     a: Math.floor(Math.random() * 10) + 1,
@@ -116,10 +112,10 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
       newErrors.phone = "Invalid phone number";
     }
 
-    const correctAnswer = captchaNumbers.a + captchaNumbers.b;
-    if (!captchaAnswer || parseInt(captchaAnswer) !== correctAnswer) {
-      newErrors.captcha = "Captcha answer is incorrect";
-    }
+    // const correctAnswer = captchaNumbers.a + captchaNumbers.b;
+    // if (!captchaAnswer || parseInt(captchaAnswer) !== correctAnswer) {
+    //   newErrors.captcha = "Captcha answer is incorrect";
+    // }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -161,7 +157,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
           phone: "",
           message: "",
         });
-        setCaptchaAnswer("");
+        // setCaptchaAnswer("");
         setErrors({});
         
         onClose();
@@ -262,7 +258,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
                     id="firstName"
                     value={formData.firstName}
                     onChange={(e) => handleInputChange("firstName", e.target.value)}
-                    placeholder="John"
+                    placeholder="Name"
                     className={`input-hover-effect ${errors.firstName ? "border-red-500" : ""}`}
                     required
                   />
@@ -278,7 +274,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
                     id="lastName"
                     value={formData.lastName}
                     onChange={(e) => handleInputChange("lastName", e.target.value)}
-                    placeholder="Doe"
+                    placeholder="Surname"
                     className={`input-hover-effect ${errors.lastName ? "border-red-500" : ""}`}
                     required
                   />
@@ -295,7 +291,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
                     type="email"
                     value={formData.email}
                     onChange={(e) => handleInputChange("email", e.target.value)}
-                    placeholder="john@company.com"
+                    placeholder="youremail@company.com"
                     className={`input-hover-effect ${errors.email ? "border-red-500" : ""}`}
                     required
                   />
@@ -331,7 +327,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
                     id="company"
                     value={formData.company}
                     onChange={(e) => handleInputChange("company", e.target.value)}
-                    placeholder="Acme Inc."
+                    placeholder="MV Clouds..."
                     className={`input-hover-effect ${errors.company ? "border-red-500" : ""}`}
                     required
                   />
@@ -376,7 +372,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
                 </div>
 
                 {/* Captcha */}
-                <div className="space-y-2 md:col-span-2">
+                {/* <div className="space-y-2 md:col-span-2">
                   <Label htmlFor="captcha" className="text-sm font-medium">
                     Verify you're human: What is {captchaNumbers.a} + {captchaNumbers.b}?{" "}
                     <span className="text-destructive">*</span>
@@ -391,7 +387,7 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
                     required
                   />
                   {errors.captcha && <p className="text-xs text-red-500">{errors.captcha}</p>}
-                </div>
+                </div> */}
               </div>
 
               {/* Submit Button */}

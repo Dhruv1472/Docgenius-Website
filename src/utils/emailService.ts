@@ -1,30 +1,7 @@
-/**
- * Silent Email Service - FormSubmit
- * 
- * This service uses FormSubmit - a completely free email service that requires:
- * - NO registration
- * - NO access keys
- * - NO personal information (except the email where you want to receive messages)
- * - NO backend
- * 
- * How it works:
- * - Sends email silently in the background
- * - User just clicks submit and gets a success message
- * - No email client opens
- * - Completely transparent to the user
- * 
- * Setup: Just put your email in the BUSINESS_EMAIL constant below
- */
 
 // Your business email where you want to receive demo requests
 const BUSINESS_EMAIL = "dhruv.k@mvclouds.com";
 
-/**
- * Send email silently using FormSubmit
- * User sees nothing - email is sent in background
- * @param formData Demo request form data
- * @returns Promise<boolean> Success status
- */
 export const sendDemoRequest = async (formData: {
   firstName: string;
   lastName: string;
@@ -46,7 +23,7 @@ export const sendDemoRequest = async (formData: {
     // Add form fields
     data.append('name', `${formData.firstName} ${formData.lastName}`);
     data.append('email', formData.email);
-    data.append('subject', `Demo Request from ${formData.company}`);
+    data.append('subject', `Docgenius Demo Request from ${formData.firstName} ${formData.lastName}`);
     data.append('company', formData.company);
     // data.append('jobTitle', formData.jobTitle || 'Not provided');
     // data.append('companySize', formData.companyStrength || 'Not provided');
@@ -57,7 +34,7 @@ export const sendDemoRequest = async (formData: {
     // FormSubmit settings (disable default redirect, captcha, etc.)
     data.append('_captcha', 'false'); // Disable FormSubmit's captcha (you have your own)
     data.append('_template', 'table'); // Use table format for email
-    data.append('_subject', `Demo Request from ${formData.company}`);
+    data.append('_subject', `Docgenius Demo Request from ${formData.firstName} ${formData.lastName}`);
     
     // Send the request
     const response = await fetch(formSubmitUrl, {
