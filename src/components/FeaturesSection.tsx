@@ -11,6 +11,7 @@ import {
   Zap,
   PenTool,
   Workflow,
+  Brain,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -18,7 +19,12 @@ const features = [
   {
     icon: FileCode2,
     title: "No-Code Template Builder",
-    description: "Design professional document templates effortlessly - no coding or technical skills necessary. Customize with our intuitive drag-and-drop editor.",
+    description: "Create, customize, and manage templates easily with our automated document generation software, no technical skills needed.",
+  },
+  {
+    icon: Brain,
+    title: "AI-Powered Doc Generation",
+    description: "Create customized, ready-to-use documents in few minutes. Simply add AI prompts, and it uses seamless Salesforce field mapping to pull the right data and generate accurate documents instantly.",
   },
   {
     icon: Database,
@@ -28,42 +34,42 @@ const features = [
   {
     icon: MousePointerClick,
     title: "Easy Field Mapping",
-    description: "Quickly map Salesforce fields into your documents using drag-and-drop or simple copy-paste - without complex queries or coding.",
+    description: "Map Salesforce fields to templates using drag and drop or copy-paste key fields with our document generation tools for precision.",
   },
   {
     icon: Eye,
     title: "Live Preview with Real-Time Editing",
-    description: "Visualize exactly how your document will appear using real Salesforce data. Make last-minute edits on the fly without impacting your original template.",
+    description: "Instantly preview documents with real Salesforce data, ideal for legal document generation software with easy edits.",
   },
   {
     icon: Files,
     title: "Bulk & Scheduled Generation",
-    description: "Save valuable time by generating documents for hundreds of records simultaneously. Automate recurring document creation with flexible scheduling.",
+    description: "Automate document creation for hundreds of records using the best document generation software, with scheduled workflows.",
   },
   {
     icon: FileOutput,
     title: "Multiple Export Formats",
-    description: "Export documents as polished PDFs, editable DOCX files, or data-friendly CSVs - ready for any workflow or use case.",
+    description: "Export documents in PDFs, DOCX, or CSV formats using our automated document generation software, flexible for any workflow.",
   },
   {
     icon: Cloud,
     title: "Salesforce & External Storage",
-    description: "Securely save your documents within Salesforce or to external platforms like Google Drive, OneDrive, Dropbox, or AWS - all seamlessly connected.",
+    description: "Securely store and sync documents in Salesforce or with platforms like Google Drive, OneDrive, or AWS using our document generation tools.",
   },
   {
     icon: Zap,
     title: "One-Click Document Generation",
-    description: "Predefine your entire document workflow and generate ready-to-use documents with a single click from any record page.",
+    description: "Generate documents in one click directly from Salesforce records using automated document generation software for fast, consistent results.",
   },
   {
     icon: PenTool,
     title: "Built-In Digital Signature",
-    description: "Simplify approvals with integrated e-signatures. Send documents for signing and capture signatures electronically, all stored safely and automatically.",
+    description: "Capture e-signatures electronically, storing them automatically in our legal document generation software for secure document workflows.",
   },
   {
     icon: Workflow,
     title: "Flow & Automation Ready",
-    description: "Integrate DocGenius effortlessly into your Salesforce automation - generate documents as part of Screen Flows or trigger automatically when records change.",
+    description: "Integrate DocGenius into Salesforce Flows, triggering instant automated document generation for record updates in your Salesforce document management system.",
   },
 ];
 

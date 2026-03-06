@@ -1,6 +1,6 @@
 
 // Your business email where you want to receive demo requests
-const BUSINESS_EMAIL = "dhruv.k@mvclouds.com";
+const BUSINESS_EMAIL = "dharmik@mvclouds.com";
 
 export const sendDemoRequest = async (formData: {
   firstName: string;

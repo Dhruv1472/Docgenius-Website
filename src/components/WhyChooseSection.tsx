@@ -10,27 +10,27 @@ const reasons = [
   {
     icon: Code2,
     title: "No Coding Needed",
-    description: "Create powerful, professional documents without queries or technical expertise - simple and accessible for every user.",
+    description: "Easily create professional documents with no technical expertise needed, using powerful document generation tools that are simple and accessible.",
   },
   {
     icon: TrendingUp,
     title: "Scales with Your Business",
-    description: "From single documents to millions, DocGenius handles your document needs quickly and flawlessly.",
+    description: "Whether you're generating one document or millions, DocGenius handles your needs quickly and growing with your business.",
   },
   {
     icon: Shield,
     title: "Secure, Role-Based Access",
-    description: "Control over who can create, edit, or generate documents with flexible, role-based permissions.",
+    description: "Control document creation with flexible, role-based access and maintain the security of your data within the Salesforce.",
   },
   {
     icon: Sparkles,
     title: "User-Friendly & Fast Setup",
-    description: "Our clean, intuitive interface ensures you get started quickly and work smarter, not harder.",
+    description: "Get started instantly with an intuitive interface, designed for quick setup and smooth operation.",
   },
   {
     icon: Users,
     title: "Made for Real Users",
-    description: "Designed to simplify document creation, eliminate errors, and boost productivity.",
+    description: "Eliminate errors, increase productivity, and streamline your document creation process with the best document generation software for all businesses.",
   },
 ];
 

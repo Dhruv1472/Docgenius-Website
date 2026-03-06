@@ -31,8 +31,7 @@ export const UseCaseSection = () => {
             From Salesforce Record to <span className="gradient-text">Ready Document</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            See how simple document generation can be
-          </p>
+          Turn Salesforce records into ready-to-send documents with automated document generation software. Create accurate contracts using innovative document generation tools.          </p>
         </motion.div>
 
         {/* Use Case Story */}
@@ -53,7 +52,7 @@ export const UseCaseSection = () => {
             </div>
             <div className="flex-1">
               <p className="text-xl md:text-2xl font-bold font-display gradient-text mt-6">
-                No manual work. No errors. No delays.
+                Fully accurate, automated and delivered in seconds
               </p>
             </div>
           </div>

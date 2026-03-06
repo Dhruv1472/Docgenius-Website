@@ -167,7 +167,7 @@ export const HeroSection = () => {
                     </div>
                   </div>
 
-                  <div className="mx-auto overflow-hidden rounded-xl border border-border/60 bg-muted/30 md:min-h-[400px] relative">
+                  <div className="mx-auto overflow-hidden rounded-xl border border-border/60 bg-muted/30 md:min-h-[400px] relative !w-full !aspect-[9/5]">
                     <AnimatePresence mode="wait">
                       <motion.img
                         key={`img-${activeIndex}`}
@@ -178,7 +178,7 @@ export const HeroSection = () => {
                         exit={{ opacity: 0 }}
                         transition={{ duration: 0.3 }}
                         onLoad={() => setImageLoaded(true)}
-                        className="w-full h-full object-cover"
+                        className="!w-full object-cover"
                       />
                     </AnimatePresence>
                     {!imageLoaded && (

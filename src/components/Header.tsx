@@ -1,4 +1,5 @@
 import { useState } from "react";
+import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,15 +8,24 @@ import docgeniusLogo from "@/assets/docGeniusLogoSvg.svg";
 import { BookDemoModal } from "@/components/BookDemoDialog";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Use Cases", href: "#usecase" },
-  { label: "Features", href: "#features" },
-  { label: "Why DocGenius", href: "#why-docgenius" },
-  { label: "Industries", href: "#industries" },
-  // { label: "Pricing", href: "#pricing" },
-  // { label: "Reviews", href: "#reviews" },
-  { label: "FAQs", href: "#faqs" },
+  { label: "Home", id: "home" },
+  // { label: "Use Cases", id: "usecase" },
+  { label: "Features", id: "features" },
+  { label: "Why DocGenius", id: "why-docgenius" },
+  { label: "Industries", id: "industries" },
+  // { label: "Pricing", id: "pricing" },
+  // { label: "Reviews", id: "reviews" },
+  { label: "FAQs", id: "faqs" },
 ];
+
+const scrollToSection = (e: React.MouseEvent, id: string) => {
+  e.preventDefault();
+  if (id === "home") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  } else {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+  }
+};
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +36,7 @@ export const Header = () => {
       <div className="px-4">
         <div className="container-narrow mx-auto flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#home" className="flex items-center gap-2">
+          <a href="#" onClick={(e) => scrollToSection(e, "home")} className="flex items-center gap-2">
             <img 
               src={docgeniusLogo} 
               alt="DocGenius" 
@@ -38,8 +48,9 @@ export const Header = () => {
           <nav className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <a
-                key={link.href}
-                href={link.href}
+                key={link.id}
+                href="#"
+                onClick={(e) => scrollToSection(e, link.id)}
                 className="text-nowrap px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
@@ -83,9 +94,9 @@ export const Header = () => {
               <div className="max-w-7xl mx-auto flex flex-col gap-2">
                 {navLinks.map((link) => (
                   <a
-                    key={link.href}
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
+                    key={link.id}
+                    href="#"
+                    onClick={(e) => { scrollToSection(e, link.id); setIsOpen(false); }}
                     className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
                   >
                     {link.label}

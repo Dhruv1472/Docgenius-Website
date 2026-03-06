@@ -274,6 +274,17 @@ export function IndustriesSection() {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const itemsPerRow = useItemsPerRow();
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const gridRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (gridRef.current && !gridRef.current.contains(e.target as Node)) {
+        setSelectedIndex(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleIndustryClick = (index: number) => {
     const isClosing = selectedIndex === index;
@@ -360,7 +371,7 @@ export function IndustriesSection() {
             That runs on documents
           </p>
         </motion.div>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div ref={gridRef} className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
           {rows}
         </div>
       </div>
