@@ -6,6 +6,7 @@ import HR3 from "@/assets/HR/hr3.png";
 import HR4 from "@/assets/HR/hr4.png";
 import HR5 from "@/assets/HR/hr5.png";
 import HR6 from "@/assets/HR/hr6.png";
+import HR7 from "@/assets/HR/hr7.png";
 
 export const hrTeamsImages: Record<string, string> = {
   hr1: HR1,
@@ -14,6 +15,7 @@ export const hrTeamsImages: Record<string, string> = {
   hr4: HR4,
   hr5: HR5,
   hr6: HR6,
+  hr7: HR7,
 };
 
 export const hrTeams: Industry = {
@@ -89,7 +91,7 @@ export const hrTeams: Industry = {
           featureUsed: "Record Triggering Flow.",
           workflow:
             'When an employee resigns, the HR manager changes the contact status to "Terminated" in Salesforce. This trigger fires a Flow that automatically generates the "Experience Letter" and "Full & Final Settlement" document, saving it to the employee\'s record and emailing a copy to the Payroll department.',
-          imageKey: "hr6",
+          imageKey: "hr7",
         },
       ],
     },

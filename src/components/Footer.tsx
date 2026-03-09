@@ -10,7 +10,7 @@ const quickLinks = [
   { label: "Features", id: "features" },
   { label: "Why DocGenius", id: "why-docgenius" },
   { label: "Industries", id: "industries" },
-  // { label: "Pricing", id: "pricing" },
+  { label: "Pricing", id: "pricing" },
   // { label: "Reviews", id: "reviews" },
   { label: "FAQs", id: "faqs" },
 ];

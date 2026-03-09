@@ -1,0 +1,41 @@
+## Sitemaps
+[XML Sitemap](https://docgenius.ai/sitemap.xml): Includes all crawlable and indexable pages.
+
+
+# Docgenius 
+> DocGenius is a native Salesforce application designed to simplify the legal document generation process for users by transforming Salesforce data into polished documents like contracts, proposals, and reports. With a focus on usability, the platform eliminates the need for coding, making it accessible to users with varying levels of technical expertise. It supports both standard and custom Salesforce objects, catering to a wide range of business requirements. Targeting Salesforce users in sales, legal, and administrative roles, DocGenius offers seamless integration and a user-friendly interface, addressing the increasing demand for efficient document management solutions in the SaaS industry.
+
+- [DocGenius](https://docgenius.ai/): This page serves as the main entry point for DocGenius, outlining the application's capabilities in document generation within Salesforce. It highlights the ease of use, the ability to create professional documents without coding, and the support for both standard and custom Salesforce objects. Users in sales, legal, and administrative roles will find valuable insights into how DocGenius can streamline their document creation processes and enhance productivity within their organizations.
+
+## About Product
+Docgenius AI helps users generate business documents using artificial intelligence. The platform is designed to simplify document creation, reduce manual effort, and improve productivity.
+
+
+## Core Features
+- Salesforce-native document generation
+- Legal document automation
+- Automated document workflows
+- Support for standard and custom Salesforce objects
+- No-code document template builder
+
+## Use Cases
+- Contract generation
+- Proposal generation
+- Sales document automation
+- Legal document management
+- Automated business reports
+
+## Important Pages
+- Home: https://docgenius.ai/
+
+## Social Profiles
+- X (Twitter): https://x.com/Docgenius_AI 
+- Reddit: https://www.reddit.com/user/Docgenius_AI/ 
+- Pinterest: https://www.pinterest.com/Docgenius_AI/
+- Instagram: https://www.instagram.com/docgenius_ai/
+- LinkedIn: https://www.linkedin.com/showcase/docgeniusai/about/?viewAsMember=true  
+
+## Industry
+
+## Contact
+Website: https://docgenius.ai

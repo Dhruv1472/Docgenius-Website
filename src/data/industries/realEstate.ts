@@ -6,6 +6,7 @@ import Real3 from "@/assets/Real Estate/Real3.png";
 import Real4 from "@/assets/Real Estate/Real4.png";
 import Real5 from "@/assets/Real Estate/Real5.png";
 import Real6 from "@/assets/Real Estate/Real6.png";
+import Real7 from "@/assets/Real Estate/Real7.png";
 
 export const realEstateImages: Record<string, string> = {
   realEstate1: Real1,
@@ -14,6 +15,7 @@ export const realEstateImages: Record<string, string> = {
   realEstate4: Real4,
   realEstate5: Real5,
   realEstate6: Real6,
+  realEstate7: Real7,
 };
 
 export const realEstate: Industry = {
@@ -121,7 +123,7 @@ export const realEstate: Industry = {
           //       'The signed PDF is automatically attached to the Salesforce Opportunity record under "Files."',
           //   },
           // ],
-          imageKey: "realEstate6",
+          imageKey: "realEstate7",
         },
       ],
     },

@@ -6,6 +6,7 @@ import ItSoftware3 from "@/assets/It Software/ItSoftware3.png";
 import ItSoftware4 from "@/assets/It Software/ItSoftware4.png";
 import ItSoftware5 from "@/assets/It Software/ItSoftware5.png";
 import ItSoftware6 from "@/assets/It Software/ItSoftware6.png";
+import ItSoftware7 from "@/assets/It Software/ItSoftware7.png";
 
 export const itSoftwareImages: Record<string, string> = {
   itSoftware1: ItSoftware1,
@@ -14,6 +15,7 @@ export const itSoftwareImages: Record<string, string> = {
   itSoftware4: ItSoftware4,
   itSoftware5: ItSoftware5,
   itSoftware6: ItSoftware6,
+  itSoftware7: ItSoftware7,
 };
 
 export const itSoftware: Industry = {
@@ -131,7 +133,7 @@ export const itSoftware: Industry = {
                 "Velocity, professionalism, scalability, and billing accuracy combine to reduce time-to-revenue and minimize post-sale churn.",
             },
           ],
-          imageKey: "itSoftware6",
+          imageKey: "itSoftware7",
         },
       ],
     },

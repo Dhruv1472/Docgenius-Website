@@ -6,6 +6,7 @@ import Legal3 from "@/assets/Legal Professional/Legal3.png";
 import Legal4 from "@/assets/Legal Professional/Legal4.png";
 import Legal5 from "@/assets/Legal Professional/Legal5.png";
 import Legal6 from "@/assets/Legal Professional/Legal6.png";
+import Legal7 from "@/assets/Legal Professional/Legal7.png";
 
 export const legalProfessionalImages: Record<string, string> = {
   legalProfessional1: Legal1,
@@ -14,6 +15,7 @@ export const legalProfessionalImages: Record<string, string> = {
   legalProfessional4: Legal4,
   legalProfessional5: Legal5,
   legalProfessional6: Legal6,
+  legalProfessional7: Legal7,
 };
 
 export const legalProfessional: Industry = {
@@ -79,7 +81,7 @@ export const legalProfessional: Industry = {
             "External Storage Integration & Dynamic Naming.",
           workflow:
             'The firm uses OneDrive to organize files by "Matter Number." DocGenius automatically names the file: [Case Number] - Retainer - [Client Name] - [Date].pdf. The file is automatically saved to the specific OneDrive folder for that Case Number, ensuring the firm maintains a compliant audit trail outside of Salesforce.',
-          imageKey: "legalProfessional6",
+          imageKey: "legalProfessional7",
         },
       ],
     },

@@ -6,7 +6,7 @@ import Support3 from "@/assets/Customer Support/Support3.png";
 import Support4 from "@/assets/Customer Support/Support4.png";
 import Support5 from "@/assets/Customer Support/Support5.png";
 import Support6 from "@/assets/Customer Support/Support6.png";
-import Support7 from "@/assets/Customer Support/Support6.png";
+import Support7 from "@/assets/Customer Support/Support7.png";
 
 export const customerSupportImages: Record<string, string> = {
   customerSupport1: Support1,

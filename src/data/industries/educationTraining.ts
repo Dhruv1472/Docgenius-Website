@@ -6,6 +6,7 @@ import EduTrain3 from "@/assets/Education Training/EduTrain3.png";
 import EduTrain4 from "@/assets/Education Training/EduTrain4.png";
 import EduTrain5 from "@/assets/Education Training/EduTrain5.png";
 import EduTrain6 from "@/assets/Education Training/EduTrain6.png";
+import EduTrain7 from "@/assets/Education Training/EduTrain7.png";
 
 export const EducationTrainingImages: Record<string, string> = {
   EducationTraining1: EduTrain1,
@@ -14,6 +15,7 @@ export const EducationTrainingImages: Record<string, string> = {
   EducationTraining4: EduTrain4,
   EducationTraining5: EduTrain5,
   EducationTraining6: EduTrain6,
+  EducationTraining7: EduTrain7,
 };
 
 export const educationTraining: Industry = {
@@ -76,7 +78,7 @@ export const educationTraining: Industry = {
           featureUsed: "External Storage Integration.",
           workflow:
             'Student records must be kept for decades. Storing thousands of PDFs in Salesforce is too expensive. DocGenius is configured to automatically route all "Final Transcripts" and "Diplomas" to a specific Google Drive or AWS bucket named "Alumni_Records_2025". This keeps Salesforce lean while keeping records accessible.',
-          imageKey: "EducationTraining6",
+          imageKey: "EducationTraining7",
         },
       ],
     },

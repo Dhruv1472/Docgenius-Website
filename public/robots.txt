@@ -1,19 +1,25 @@
 User-agent: *
-Allow: /
-
+User-agent: Googlebot
+User-agent: Googlebot-image
+User-agent: Googlebot
+User-agent: Googlebot-Image/1.0
+User-agent: Googlebot-Video/1.0
+User-agent: Bingbot
+User-agent: Slurp		
+User-agent: DuckDuckBot
+User-agent: Baiduspider
+User-agent: YandexBot
+User-agent: ia_archiver	
+User-agent: GoogleBot-Mobile	
+User-agent: Mediapartners-Google	
+User-agent: Adsbot-Google	
+User-agent: yahoo-mmcrawler	
 User-agent: GPTBot
-Allow: /
-
+User-agent: ChatGPT-User
 User-agent: ClaudeBot
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-User-agent: CCBot
-Allow: /
-
 User-agent: PerplexityBot
-Allow: /
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: CCBot
 
 Sitemap: https://docgenius.ai/sitemap.xml
