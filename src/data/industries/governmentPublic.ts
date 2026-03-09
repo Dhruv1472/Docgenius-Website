@@ -6,6 +6,7 @@ import Gov3 from "@/assets/Government Public/Gov3.png";
 import Gov4 from "@/assets/Government Public/Gov4.png";
 import Gov5 from "@/assets/Government Public/Gov5.png";
 import Gov6 from "@/assets/Government Public/Gov6.png";
+import Gov7 from "@/assets/Government Public/Gov7.png";
 
 export const governmentPublicImages: Record<string, string> = {
   government1: Gov1,
@@ -14,6 +15,7 @@ export const governmentPublicImages: Record<string, string> = {
   government4: Gov4,
   government5: Gov5,
   government6: Gov6,
+  government7: Gov7,
 };
 
 export const governmentPublic: Industry = {
@@ -76,7 +78,7 @@ export const governmentPublic: Industry = {
           featureUsed: "External Storage Integration (AWS/GovCloud).",
           workflow:
             'Public records must be kept for 7-10 years. Salesforce storage is expensive for this volume. DocGenius is configured to automatically route every generated Permit and License to a secure AWS S3 Bucket (or SharePoint/OneDrive). Dynamic Naming: Files are named systematically (e.g., Permit_2025_[LicenseID]_[Date].pdf) so they can be easily retrieved if a citizen files a Freedom of Information Act (FOIA) request.',
-          imageKey: "government6",
+          imageKey: "government7",
         },
       ],
     },
