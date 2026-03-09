@@ -18,12 +18,19 @@ const navLinks = [
   { label: "FAQs", id: "faqs" },
 ];
 
-const scrollToSection = (e: React.MouseEvent, id: string) => {
+const scrollToSection = (e: React.MouseEvent, id: string, delay = 0) => {
   e.preventDefault();
-  if (id === "home") {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+  const doScroll = () => {
+    if (id === "home") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+  if (delay > 0) {
+    setTimeout(doScroll, delay);
   } else {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    doScroll();
   }
 };
 
@@ -96,7 +103,7 @@ export const Header = () => {
                   <a
                     key={link.id}
                     href="#"
-                    onClick={(e) => { scrollToSection(e, link.id); setIsOpen(false); }}
+                    onClick={(e) => { setIsOpen(false); scrollToSection(e, link.id, 300); }}
                     className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
                   >
                     {link.label}
