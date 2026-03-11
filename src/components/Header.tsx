@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button";
 import { CTA_LINKS } from "@/lib/utils";
 import docgeniusLogo from "@/assets/docGeniusLogoSvg.svg";
 import { BookDemoModal } from "@/components/BookDemoDialog";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const navLinks = [
   { label: "Home", id: "home" },
@@ -18,32 +19,40 @@ const navLinks = [
   { label: "FAQs", id: "faqs" },
 ];
 
-const scrollToSection = (e: React.MouseEvent, id: string, delay = 0) => {
-  e.preventDefault();
-  const doScroll = () => {
-    if (id === "home") {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-  if (delay > 0) {
-    setTimeout(doScroll, delay);
+const doScroll = (id: string) => {
+  if (id === "home") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   } else {
-    doScroll();
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
   }
 };
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [bookDemoOpen, setBookDemoOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (e: React.MouseEvent, id: string, delay = 0) => {
+    e.preventDefault();
+    if (location.pathname === "/") {
+      if (delay > 0) {
+        setTimeout(() => doScroll(id), delay);
+      } else {
+        doScroll(id);
+      }
+    } else {
+      navigate("/");
+      setTimeout(() => doScroll(id), 350);
+    }
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
       <div className="px-4">
         <div className="container-narrow mx-auto flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
-          <a href="#" onClick={(e) => scrollToSection(e, "home")} className="flex items-center gap-2">
+          <a href="#" onClick={(e) => handleNavClick(e, "home")} className="flex items-center gap-2">
             <img 
               src={docgeniusLogo} 
               alt="DocGenius" 
@@ -57,7 +66,7 @@ export const Header = () => {
               <a
                 key={link.id}
                 href="#"
-                onClick={(e) => scrollToSection(e, link.id)}
+                onClick={(e) => handleNavClick(e, link.id)}
                 className="text-nowrap px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
               >
                 {link.label}
@@ -103,7 +112,7 @@ export const Header = () => {
                   <a
                     key={link.id}
                     href="#"
-                    onClick={(e) => { setIsOpen(false); scrollToSection(e, link.id, 300); }}
+                    onClick={(e) => { setIsOpen(false); handleNavClick(e, link.id, 300); }}
                     className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
                   >
                     {link.label}
