@@ -9,6 +9,7 @@ import { PricingSection } from "@/components/PricingSection";
 import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { FAQSection } from "@/components/FAQSection";
 import { Footer } from "@/components/Footer";
+import { Seo } from "@/components/Seo";
 
 const Index = () => {
   // Ensure page starts at top on initial load
@@ -23,6 +24,11 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <Seo
+        title="DocGenius | Salesforce-Native Document Generation"
+        description="Automate proposals, contracts, and reports directly from Salesforce with DocGenius. Build templates once, capture data instantly, and ship compliant documents in minutes."
+        path="/"
+      />
       <Header />
       <main>
         <HeroSection />

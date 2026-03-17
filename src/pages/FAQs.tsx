@@ -9,6 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { Seo } from "@/components/Seo";
 
 const FAQs = () => {
   useEffect(() => {
@@ -20,6 +21,11 @@ const FAQs = () => {
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <Seo
+        title="DocGenius FAQs | Answers to Common Questions"
+        description="Find answers about DocGenius pricing, Salesforce integration, template setup, and how to automate document workflows."
+        path="/faqs"
+      />
       <Header />
       <main className="flex-1 pt-24 pb-16">
         <div className="container-narrow mx-auto px-4">

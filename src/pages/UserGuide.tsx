@@ -1,11 +1,17 @@
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
-import { BookOpen } from "lucide-react";
+import { Seo } from "@/components/Seo";
 
 const UserGuide = () => {
   return (
     <div className="min-h-screen bg-background flex flex-col">
+      <Seo
+        title="DocGenius User Guide | Step-by-Step Setup"
+        description="Follow the DocGenius user guide to configure templates, connect Salesforce objects, and automate document generation across your teams."
+        path="/userguide"
+        type="article"
+      />
       <Header />
       <main className="flex-1 pt-24 pb-16">
         <div className="container-narrow mx-auto px-4">
