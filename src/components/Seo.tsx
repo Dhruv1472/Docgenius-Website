@@ -50,7 +50,7 @@ export const Seo = ({
   path = "/",
   image = DEFAULT_IMAGE,
   type = "website",
-  robots = "index, follow",
+  robots = "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
 }: SeoProps) => {
   useEffect(() => {
     const baseUrl = getBaseUrl();
@@ -63,17 +63,17 @@ export const Seo = ({
     upsertMeta({ name: "robots" }, robots);
     upsertLink("canonical", url);
 
-    upsertMeta({ property: "og:site_name" }, SITE_NAME);
+    upsertMeta({ property: "og:type" }, type);
     upsertMeta({ property: "og:title" }, title);
     upsertMeta({ property: "og:description" }, description);
-    upsertMeta({ property: "og:type" }, type);
     upsertMeta({ property: "og:url" }, url);
     upsertMeta({ property: "og:image" }, resolvedImage);
-    upsertMeta({ property: "og:image:alt" }, `${SITE_NAME} preview`);
+    upsertMeta({ property: "og:site_name" }, SITE_NAME);
 
     upsertMeta({ name: "twitter:card" }, "summary_large_image");
     upsertMeta({ name: "twitter:title" }, title);
     upsertMeta({ name: "twitter:description" }, description);
+    upsertMeta({ name: "twitter:site" }, "@DocGenius");
     upsertMeta({ name: "twitter:image" }, resolvedImage);
   }, [title, description, path, image, type, robots]);
 
