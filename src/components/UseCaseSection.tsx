@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { MousePointer, FileText, Send, Database, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA_LINKS } from "@/lib/utils";
-import { BookDemoModal } from "@/components/BookDemoDialog";
+import { BookDemoModal } from "@/components/BookDemoModal";
 import usecaseHero from "@/assets/case-hero.png";
 import { useState } from "react";
 

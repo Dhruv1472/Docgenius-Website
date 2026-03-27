@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FileText, Eye, Files, FileDown, PenTool, Workflow, CalendarClock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA_LINKS } from "@/lib/utils";
-import { BookDemoModal } from "@/components/BookDemoDialog";
+import { BookDemoModal } from "@/components/BookDemoModal";
 import featureImg1 from "@/assets/hero-section-feature-1.png";
 import featureImg2 from "@/assets/hero-section-feature-2.png";
 import featureImg3 from "@/assets/hero-section-feature-3.png";

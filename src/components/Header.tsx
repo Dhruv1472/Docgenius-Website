@@ -5,7 +5,7 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA_LINKS } from "@/lib/utils";
 import docgeniusLogo from "@/assets/docGeniusLogoSvg.svg";
-import { BookDemoModal } from "@/components/BookDemoDialog";
+import { BookDemoModal } from "@/components/BookDemoModal";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const navLinks = [

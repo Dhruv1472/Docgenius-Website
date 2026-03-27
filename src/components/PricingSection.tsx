@@ -3,7 +3,7 @@ import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA_LINKS } from "@/lib/utils";
 import { useState } from "react";
-import { BookDemoModal } from "@/components/BookDemoDialog";
+import { BookDemoModal } from "@/components/BookDemoModal";
 
 const plans = [
   {
