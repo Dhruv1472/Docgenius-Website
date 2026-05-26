@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { createClient, PRISMIC_BLOG_TYPE } from "@/lib/prismic";
 import type { PrismicDocument } from "@prismicio/client";
 
-const PAGE_SIZE = 3;
+const PREVIEW_COUNT = 3;
+const FETCH_COUNT = 4;
 
 type RichTextBlock = {
   text?: string;
@@ -101,6 +102,7 @@ export function BlogPreviewSection() {
   const navigate = useNavigate();
   const [posts, setPosts] = useState<PrismicDocument[]>([]);
   const [loading, setLoading] = useState(true);
+  const [hasMorePosts, setHasMorePosts] = useState(false);
 
   useEffect(() => {
     let active = true;
@@ -110,7 +112,7 @@ export function BlogPreviewSection() {
       try {
         const client = createClient();
         const response = await client.getByType(PRISMIC_BLOG_TYPE, {
-          pageSize: PAGE_SIZE,
+          pageSize: FETCH_COUNT,
           page: 1,
           orderings: [
             { field: `my.${PRISMIC_BLOG_TYPE}.publish_date`, direction: "desc" },
@@ -119,11 +121,15 @@ export function BlogPreviewSection() {
         });
 
         if (active) {
-          setPosts(response.results.slice(0, PAGE_SIZE));
+          setHasMorePosts(response.results.length > PREVIEW_COUNT);
+          setPosts(response.results.slice(0, PREVIEW_COUNT));
         }
       } catch (error) {
         console.error("[BlogPreview] Failed to load posts", error);
-        if (active) setPosts([]);
+        if (active) {
+          setPosts([]);
+          setHasMorePosts(false);
+        }
       } finally {
         if (active) setLoading(false);
       }
@@ -169,28 +175,32 @@ export function BlogPreviewSection() {
               </div>
             ))}
           </div>
-        ) : posts.length > 0 ? (
-          <>
-            <div className="grid gap-6 md:grid-cols-3">
-              {posts.map((doc) => (
-                <BlogPreviewCard key={doc.id} doc={doc} />
-              ))}
-            </div>
-
-            <div className="mt-10 flex justify-center">
-              <button
-                type="button"
-                onClick={() => navigate("/blog")}
-                className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background shadow-md transition-transform hover:-translate-y-0.5"
-              >
-                View More
-              </button>
-            </div>
-          </>
         ) : (
-          <div className="mx-auto max-w-2xl rounded-3xl border border-border bg-background p-8 text-center text-muted-foreground shadow-sm">
-            No blog posts found yet.
-          </div>
+          <>
+            {posts.length > 0 ? (
+              <div className="grid gap-6 md:grid-cols-3">
+                {posts.map((doc) => (
+                  <BlogPreviewCard key={doc.id} doc={doc} />
+                ))}
+              </div>
+            ) : (
+              <div className="mx-auto max-w-2xl rounded-3xl border border-border bg-background p-8 text-center text-muted-foreground shadow-sm">
+                No blog posts found yet.
+              </div>
+            )}
+
+            {hasMorePosts && (
+              <div className="mt-10 flex justify-center">
+                <button
+                  type="button"
+                  onClick={() => navigate("/blog")}
+                  className="inline-flex items-center gap-2 rounded-full bg-foreground px-6 py-3 text-sm font-semibold text-background shadow-md transition-transform hover:-translate-y-0.5"
+                >
+                  View More
+                </button>
+              </div>
+            )}
+          </>
         )}
       </div>
     </section>
