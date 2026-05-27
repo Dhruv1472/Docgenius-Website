@@ -16,6 +16,7 @@ const navLinks = [
   { label: "Industries", id: "industries" },
   { label: "Pricing", id: "pricing" },
   // { label: "Reviews", id: "reviews" },
+  { label: "Blog", id: "blog" },
   { label: "FAQs", id: "faqs" },
 ];
 

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import docgeniusLogo from "@/assets/docGeniusLogoSvg.svg";
 import mvcloudsLogo from "@/assets/mvclouds-logo.svg";
 import { CTA_LINKS } from "@/lib/utils";
@@ -12,19 +13,35 @@ const quickLinks = [
   { label: "Industries", id: "industries" },
   { label: "Pricing", id: "pricing" },
   // { label: "Reviews", id: "reviews" },
+  { label: "Blog", id: "blog" },
   { label: "FAQs", id: "faqs" },
 ];
 
-const scrollToSection = (e: React.MouseEvent, id: string) => {
-  e.preventDefault();
+const scrollToSection = (id: string) => {
   if (id === "home") {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  } else {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    return;
   }
+
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
 };
 
 export const Footer = () => {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleNavClick = (e: React.MouseEvent, id: string) => {
+    e.preventDefault();
+
+    if (location.pathname === "/") {
+      scrollToSection(id);
+      return;
+    }
+
+    navigate("/");
+    setTimeout(() => scrollToSection(id), 350);
+  };
+
   return (
     <footer className="bg-foreground text-background py-16">
       <div className="container-narrow">
@@ -42,11 +59,11 @@ export const Footer = () => {
               alt="DocGenius" 
               className="h-16 w-auto mb-4 brightness-0 !invert mb-1"
             />
-            <p className="text-background/70 text-sm leading-relaxed mb-4">
+            <div className="text-background/70 text-sm leading-relaxed mb-4">
               From proposals and contracts to reports and letters, DocGenius makes the entire document journey fast, clean, and stress-free.
-            </p>
+            </div>
             <div className="pt-4 border-t border-background/20">
-              <p className="text-background/50 text-xs mb-2">Powered by</p>
+              <div className="text-background/50 text-xs mb-2">Powered by</div>
               <a href="https://mvclouds.com/" target="_blank" rel="noopener noreferrer" aria-label="MV Clouds" className="block mb-4">
                 <img 
                   src={mvcloudsLogo} 
@@ -107,7 +124,7 @@ export const Footer = () => {
                 <li key={link.id}>
                   <a
                     href="#"
-                    onClick={(e) => scrollToSection(e, link.id)}
+                    onClick={(e) => handleNavClick(e, link.id)}
                     className="text-background/70 hover:text-background transition-colors text-sm"
                   >
                     {link.label}
@@ -142,7 +159,7 @@ export const Footer = () => {
               </a>
             </p>
             
-            <p className="text-background/70 text-sm mb-6">
+            <div className="text-background/70 text-sm mb-6">
               <div className="text-background/70 hover:text-background flex">
                 <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" className="bi bi-geo-alt-fill inline mr-2" viewBox="0 0 16 16">
                   <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
@@ -152,7 +169,7 @@ export const Footer = () => {
                   <div><strong>U.A.E.</strong> :  Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E.</div>
                 </div>
               </div>
-            </p>
+            </div>
           </div>
         </motion.div>
 
