@@ -5,6 +5,7 @@ import { PrismicRichText } from "@prismicio/react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import type { PrismicDocument } from "@prismicio/client";
+import noBlogFound from "@/assets/noBlogFound.png";
 
 // ── helpers ────────────────────────────────────────────────────────────────
 
@@ -457,10 +458,9 @@ function BlogPost() {
 
         {!loading && notFound && redirectChecked && (
           <div className="post2-container post2-not-found">
-            <div className="blog-empty-image-wrap">
-              <img src="/post_not_found.png" alt="Post not found" className="blog-empty-img" />
+            <div className="blog-empty-image-wrap mb-8">
+              <img src={noBlogFound} alt="Post not found" className="blog-empty-img mx-auto w-2/3 max-w-[16rem] h-auto rounded-2xl" />
             </div>
-            <h1>Post not found</h1>
             <p>This article may have been moved or unpublished.</p>
             <Link to="/blog" className="post2-back-link">
               ← Back to Blog

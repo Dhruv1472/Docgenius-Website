@@ -6,6 +6,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Seo } from "@/components/Seo";
 import type { PrismicDocument } from "@prismicio/client";
+import noBlogFound from "@/assets/noBlogDetails.png";
 
 // ── constants ──────────────────────────────────────────────────────────────
 
@@ -236,13 +237,14 @@ function Blog() {
               <div className="blog-empty-state">
                 <div className="blog-empty-media">
                   <img
-                    src="/empty_blog_state.png"
+                    src={noBlogFound}
+                    className="mx-auto w-2/3 max-w-[16rem] h-auto rounded-2xl"
                     alt="No published posts yet"
                   />
                 </div>
-                <h3>No published articles yet</h3>
+                <h3>No published blog posts yet</h3>
                 <p>
-                  We are currently writing and configuring our dynamic blog posts.
+                  We are currently writing and configuring our blog posts.
                 </p>
               </div>
             )}

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createClient, PRISMIC_BLOG_TYPE } from "@/lib/prismic";
+import noBlogFound from "@/assets/noBlogFound.png";
 import type { PrismicDocument } from "@prismicio/client";
 
 const PREVIEW_COUNT = 3;
@@ -184,8 +185,12 @@ export function BlogPreviewSection() {
                 ))}
               </div>
             ) : (
-              <div className="mx-auto max-w-2xl rounded-3xl border border-border bg-background p-8 text-center text-muted-foreground shadow-sm">
-                No blog posts found yet.
+              <div className="mx-auto max-w-2xl rounded-3xl border border-border bg-background p-8 text-center shadow-sm">
+                <img
+                  src={noBlogFound}
+                  alt="No blog posts found"
+                  className="mx-auto w-2/3 max-w-[16rem] h-auto rounded-2xl"
+                />
               </div>
             )}
 
