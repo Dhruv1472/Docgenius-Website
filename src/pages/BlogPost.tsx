@@ -393,19 +393,21 @@ function BlogPost() {
     if (shouldInjectArticle) {
       const articleSchema = {
         "@context": "https://schema.org",
-        "@type": "BlogPosting",
+        "@type": "Article",
+        "id" : canonical,
         "headline": metaTitle,
         "name": blogTitle || title,
         "description": excerpt || metaDesc,
         "image": coverUrl || undefined,
-        "url": canonical,
-        "datePublished": doc.data?.publish_date || doc.data?.published_date || doc.first_publication_date,
-        "dateModified": doc.last_publication_date,
-        "keywords": keywords,
-        "articleSection": category || undefined,
+        // "url": canonical,
+        // "datePublished": doc.data?.publish_date || doc.data?.published_date || doc.first_publication_date,
+        // "dateModified": doc.last_publication_date,
+        // "keywords": keywords,
+        // "articleSection": category || undefined,
         "author": {
-          "@type": "Person",
-          "name": author
+          "@type": "Organization",
+          "name": author,
+          "url": "https://www.docgenius.ai/" 
         },
         "publisher": {
           "@type": "Organization",
@@ -415,10 +417,17 @@ function BlogPost() {
             "url": `${window.location.origin}/assets/docGeniusLogoSvg.svg`
           }
         },
+        // "mainEntityOfPage": {
+        //   "@type": "WebPage",
+        //   "@id": canonical
+        // }
+        "datePublished": doc.data?.publish_date || doc.data?.published_date || doc.first_publication_date,
+        "dateModified": doc.last_publication_date || doc.data?.publish_date || doc.data?.published_date || doc.first_publication_date,
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": canonical
-        }
+        },
+        inLanguage: "en-US"
       };
       setSchemaScript("seo-article-schema", articleSchema);
     } else {
