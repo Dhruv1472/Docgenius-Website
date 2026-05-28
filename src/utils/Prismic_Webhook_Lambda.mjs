@@ -1,4 +1,4 @@
-import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
+import { S3Client, GetObjectCommand, PutObjectCommand } from "@aws-sdk/client-s3";
 import {
   CloudFrontClient,
   CreateInvalidationCommand,
@@ -22,17 +22,78 @@ const STATIC_PAGES = [
 export const handler = async (event) => {
   try {
 
+    // Extract updated document IDs from the Prismic webhook payload
+    let updatedDocIds = [];
+    if (event.body) {
+      try {
+        const payload = typeof event.body === "string" ? JSON.parse(event.body) : event.body;
+        if (payload && Array.isArray(payload.documents)) {
+          updatedDocIds = payload.documents;
+        }
+      } catch (e) {
+        console.log("Failed to parse webhook body:", e.message);
+      }
+    }
+
+    //Fetch existing sitemap to preserve old lastmod values
+    const existingLastmods = {};
+    try {
+      const getObjCmd = new GetObjectCommand({
+        Bucket: BUCKET_NAME,
+        Key: "DG-Web/sitemap.xml",
+      });
+      const response = await s3.send(getObjCmd);
+      const existingSitemap = await response.Body.transformToString();
+      
+      const urlRegex = /<url>([\s\S]*?)<\/url>/g;
+      let match;
+      while ((match = urlRegex.exec(existingSitemap)) !== null) {
+        const content = match[1];
+        const locMatch = content.match(/<loc>(.*?)<\/loc>/);
+        const lastmodMatch = content.match(/<lastmod>(.*?)<\/lastmod>/);
+        if (locMatch) {
+          const urlPath = locMatch[1].replace(SITE_URL, "");
+          if (lastmodMatch) {
+            existingLastmods[urlPath] = lastmodMatch[1].trim();
+          }
+        }
+      }
+    } catch (e) {
+      console.log("No existing sitemap found or error reading it:", e.message);
+    }
+
+    const today = new Date().toISOString().split("T")[0];
+
     const client = prismic.createClient(PRISMIC_REPO, { fetch });
     const posts = await client.getAllByType("docgenius"); 
 
-    const blogEntries = posts.map((post) => ({
-      url: `/blog/${post.uid}`,
-      lastmod: post.last_publication_date?.split("T")[0],
-      priority: "0.7",
-      changefreq: "monthly",
+    const blogEntries = posts.map((post) => {
+      const url = `/blog/${post.uid}`;
+      const prismicLastmod = post.last_publication_date?.split("T")[0];
+      const existingLastmod = existingLastmods[url];
+      
+      let lastmod = prismicLastmod || existingLastmod || today;
+      
+      if (updatedDocIds.includes(post.id)) {
+        lastmod = today;
+      } else if (existingLastmod && prismicLastmod) {
+        lastmod = prismicLastmod;
+      }
+
+      return {
+        url,
+        lastmod,
+        priority: "0.7",
+        changefreq: "monthly",
+      };
+    });
+
+    const staticEntries = STATIC_PAGES.map((page) => ({
+      ...page,
+      lastmod: existingLastmods[page.url] || today,
     }));
 
-    const allEntries = [...STATIC_PAGES, ...blogEntries];
+    const allEntries = [...staticEntries, ...blogEntries];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
       <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
