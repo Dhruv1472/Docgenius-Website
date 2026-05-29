@@ -7,6 +7,7 @@ type SeoProps = {
   image?: string;
   type?: "website" | "article";
   robots?: string;
+  schema?: Record<string, any>;
 };
 
 const SITE_NAME = "DocGenius";
@@ -51,6 +52,7 @@ export const Seo = ({
   image = DEFAULT_IMAGE,
   type = "website",
   robots = "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+  schema,
 }: SeoProps) => {
   useEffect(() => {
     const baseUrl = getBaseUrl();
@@ -75,7 +77,22 @@ export const Seo = ({
     upsertMeta({ name: "twitter:description" }, description);
     upsertMeta({ name: "twitter:site" }, "@DocGenius");
     upsertMeta({ name: "twitter:image" }, resolvedImage);
-  }, [title, description, path, image, type, robots]);
+
+    // Handle Schema.org JSON-LD
+    if (schema) {
+      let script = document.head.querySelector('script#seo-schema') as HTMLScriptElement | null;
+      if (!script) {
+        script = document.createElement("script");
+        script.setAttribute("type", "application/ld+json");
+        script.setAttribute("id", "seo-schema");
+        document.head.appendChild(script);
+      }
+      script.textContent = JSON.stringify(schema);
+    } else {
+      const script = document.head.querySelector('script#seo-schema');
+      if (script) script.remove();
+    }
+  }, [title, description, path, image, type, robots, schema]);
 
   return null;
 };

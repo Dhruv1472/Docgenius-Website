@@ -25,6 +25,38 @@ const FAQs = () => {
         title="DocGenius FAQs | Answers to Common Questions"
         description="Find answers about DocGenius pricing, Salesforce integration, template setup, and how to automate document workflows."
         path="/faqs"
+        schema={[
+          {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://docgenius.ai/",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "FAQs",
+                item: "https://docgenius.ai/faqs",
+              },
+            ],
+          },
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
+              },
+            })),
+          },
+        ]}
       />
       <Header />
       <main className="flex-1 pt-24 pb-16">
