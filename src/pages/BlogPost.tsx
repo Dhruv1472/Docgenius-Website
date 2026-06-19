@@ -115,6 +115,11 @@ function BlogPost() {
   const [redirectChecked, setRedirectChecked] = useState(false);
   const checkStarted = useRef(false);
 
+  // Scroll to top when navigating or when loading completes
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [uid, loading]);
+
   useEffect(() => {
     if (!uid) return;
 

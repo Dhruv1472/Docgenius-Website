@@ -722,8 +722,14 @@
     font-size: 1.14rem;
   }
 
-  .post2-body ul,
+.post2-body ul {
+  list-style-type: disc;
+  margin: 0 0 1.35em;
+  padding-left: 1.5em;
+}
+
   .post2-body ol {
+  list-style-type: decimal;
     margin: 0 0 1.35em;
     padding-left: 1.5em;
   }
@@ -731,6 +737,10 @@
   .post2-body li {
     margin: 0.35rem 0;
   }
+
+.post2-body li::marker {
+  color: #278282;
+}
 
   .post2-body blockquote {
     margin: 2rem 0;
