@@ -18,6 +18,16 @@ function formatDate(dateStr: string | undefined) {
   });
 }
 
+/** Normalize any date string to a full ISO 8601 timestamp.
+ *  Prismic custom date fields return "YYYY-MM-DD" while system fields
+ *  return a full ISO string. Google Rich Results requires a consistent format. */
+function toIsoDate(dateStr: string | undefined | null): string | undefined {
+  if (!dateStr) return undefined;
+  const d = new Date(dateStr);
+  if (isNaN(d.getTime())) return undefined;
+  return d.toISOString(); // always "YYYY-MM-DDTHH:mm:ss.sssZ"
+}
+
 function getText(doc: PrismicDocument, field: string): string {
   const val = doc.data?.[field];
   if (typeof val === "string") return val;
@@ -426,8 +436,8 @@ function BlogPost() {
         //   "@type": "WebPage",
         //   "@id": canonical
         // }
-        "datePublished": doc.data?.publish_date || doc.data?.published_date || doc.first_publication_date,
-        "dateModified": doc.last_publication_date || doc.data?.publish_date || doc.data?.published_date || doc.first_publication_date,
+        "datePublished": toIsoDate(doc.data?.publish_date ?? doc.data?.published_date ?? doc.first_publication_date),
+        "dateModified": toIsoDate(doc.last_publication_date ?? doc.data?.publish_date ?? doc.data?.published_date ?? doc.first_publication_date),
         "mainEntityOfPage": {
           "@type": "WebPage",
           "@id": canonical
