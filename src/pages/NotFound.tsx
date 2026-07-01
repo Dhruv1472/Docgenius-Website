@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { Seo } from "@/components/Seo";
 import NotFoundAnimation from "@/components/NotFoundAnimation";
-import docGeniusLogo from "@/assets/docgenius-logo-icon.png";
+import docGeniusLogo from "@/assets/docGeniusLogoSvg.svg";
 
 const NotFound = () => {
   const location = useLocation();
@@ -63,9 +63,9 @@ const NotFound = () => {
                 <img
                   src={docGeniusLogo}
                   alt="DocGenius"
-                  className="h-10 w-10 rounded-xl object-contain"
+                  className="h-12 rounded-xl object-contain"
                 />
-                <span className="rounded-full border border-gray-300 bg-gray-100 px-4 py-2 text-[0.6rem] font-semibold uppercase tracking-[0.35em] text-gray-500">
+                <span className="rounded-full border border-gray-300 bg-gray-100 px-2 py-1 mt-2 text-[0.6rem] font-semibold uppercase tracking-[0.35em] text-gray-500">
                   Page not found
                 </span>
               </div>

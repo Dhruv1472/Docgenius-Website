@@ -1,9 +1,14 @@
+import { useEffect } from "react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { motion } from "framer-motion";
 import { Seo } from "@/components/Seo";
 
 const UserGuide = () => {
+  useEffect(() => {
+    window.location.replace("https://docgenius.gitbook.io/docgenius-user-guide");
+  }, []);
+
   return (
     <div className="min-h-screen bg-background flex flex-col">
       <Seo
@@ -31,7 +36,7 @@ const UserGuide = () => {
           </motion.div>
 
           {/* PDF Viewer */}
-          <motion.div
+          {/* <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
@@ -44,7 +49,7 @@ const UserGuide = () => {
               className="w-full"
               style={{ height: "85vh", minHeight: "600px" }}
             />
-          </motion.div>
+          </motion.div> */}
         </div>
       </main>
       <Footer />
