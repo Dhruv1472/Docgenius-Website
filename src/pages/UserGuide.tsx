@@ -6,7 +6,7 @@ import { Seo } from "@/components/Seo";
 
 const UserGuide = () => {
   useEffect(() => {
-    window.location.replace("https://docgenius.gitbook.io/docgenius-user-guide");
+    window.location.replace("https://mvclouds.gitbook.io/docgenius-user-guide");
   }, []);
 
   return (
