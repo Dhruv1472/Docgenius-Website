@@ -186,25 +186,6 @@ const NotFoundAnimation = () => {
             <DocLine key={i} {...line} resolved={resolved} />
           ))}
         </div>
-
-        {/* Bottom status bar */}
-        <div className="border-t border-gray-100 px-4 py-2 flex items-center justify-between">
-          <span className="text-[0.55rem] text-gray-400">
-            {resolved ? "✓ All fields resolved" : "⚠ Unresolved fields: " + mappings.length}
-          </span>
-          {/* Progress */}
-          <div className="flex items-center gap-1.5">
-            <div className="h-1 w-16 rounded-full bg-gray-200 overflow-hidden">
-              <motion.div
-                className="h-1 rounded-full"
-                style={{ background: "linear-gradient(90deg, hsl(195 65% 45%), hsl(168 57% 45%))" }}
-                animate={{ width: resolved ? "100%" : "0%" }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-              />
-            </div>
-            <span className="text-[0.55rem] text-gray-400">{resolved ? "100%" : "0%"}</span>
-          </div>
-        </div>
       </div>
 
       {/* ── Key Mapping panel ── */}

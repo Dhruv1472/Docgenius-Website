@@ -156,6 +156,13 @@
   .text-balance {
     text-wrap: balance;
   }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
 
 /* ════════════════════════════════════════════════════════════════════════════
@@ -1101,3 +1108,9 @@
       border-radius: 20px;
     }
   }
+
+/* ── FAQ category ticker animation ── */
+@keyframes faq-ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
