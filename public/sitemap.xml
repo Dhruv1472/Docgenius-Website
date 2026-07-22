@@ -1,21 +1,62 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://docgenius.ai/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://docgenius.ai/faqs</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://docgenius.ai/userguide</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
+<url>
+<loc>https://docgenius.ai/</loc>
+<lastmod>2026-03-17</lastmod>
+<changefreq>monthly</changefreq>
+<priority>1.0</priority>
+</url>
+<url>
+<loc>https://docgenius.ai/faqs</loc>
+<lastmod>2026-03-17</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://docgenius.ai/userguide</loc>
+<lastmod>2026-03-17</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+<url>
+<loc>https://docgenius.ai/blog/salesforce-document-generation-checklist</loc>
+<lastmod>2026-07-17</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://docgenius.ai/blog/generate-documents-from-salesforce-records</loc>
+<lastmod>2026-07-10</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://docgenius.ai/blog/why-businesses-need-document-generation-software</loc>
+<lastmod>2026-07-03</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://docgenius.ai/blog/future-automated-document-generation-software-usa</loc>
+<lastmod>2026-06-30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://docgenius.ai/blog/docgenius-automated-document</loc>
+<lastmod>2026-06-30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://docgenius.ai/blog/ai-powered-document-generation-software</loc>
+<lastmod>2026-06-30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://docgenius.ai/blog/best-automated-document-generation-software-usa</loc>
+<lastmod>2026-06-30</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
 </urlset>
