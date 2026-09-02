@@ -19,7 +19,7 @@ export const sendDemoRequest = async (formData: {
     data.append("email", formData.email);
     data.append(
       "subject",
-      `SignAny 2.0 Demo Request from ${formData.firstName} ${formData.lastName}`
+      `Docgenius 2.0 Demo Request from ${formData.firstName} ${formData.lastName}`
     );
     data.append("company", formData.company);
     data.append("country", formData.country);
@@ -31,7 +31,7 @@ export const sendDemoRequest = async (formData: {
     data.append("_template", "table");
     data.append(
       "_subject",
-      `SignAny 2.0 Demo Request from ${formData.firstName} ${formData.lastName}`
+      `Docgenius Demo Request from ${formData.firstName} ${formData.lastName}`
     );
 
     const response = await fetch(formSubmitUrl, {
