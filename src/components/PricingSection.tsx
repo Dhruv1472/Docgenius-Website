@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA_LINKS } from "@/lib/utils";
-import { useState } from "react";
-import { BookDemoModal } from "@/components/BookDemoModal";
+import { Link } from "react-router-dom";
 
 const plans = [
   {
@@ -56,8 +55,6 @@ const plans = [
 ];
 
 export const PricingSection = () => {
-  const [isDemoOpen, setIsDemoOpen] = useState(false);
-
   return (
     <section id="pricing" className="section-padding bg-surface">
       <div className="container-narrow">
@@ -118,9 +115,11 @@ export const PricingSection = () => {
                   variant={plan.popular ? "hero" : "outline"}
                   size="lg"
                   className="w-full mt-auto"
-                  onClick={() => setIsDemoOpen(true)}
+                  asChild
                 >
-                  {plan.cta}
+                  <Link to="/contact-us">
+                    {plan.cta}
+                  </Link>
                 </Button>
               ) : (
                 <Button
@@ -138,8 +137,6 @@ export const PricingSection = () => {
           ))}
         </div>
       </div>
-
-      <BookDemoModal isOpen={isDemoOpen} onClose={() => setIsDemoOpen(false)} />
     </section>
   );
 };

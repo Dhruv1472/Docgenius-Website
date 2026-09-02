@@ -163,7 +163,12 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
   }, [isOpen]);
 
   const handleInputChange = (field: string, value: string) => {
-    setFormData((prev) => ({ ...prev, [field]: value }));
+    let sanitizedValue = value;
+    if (field === "phone") {
+      // Only allow digits, plus sign, spaces, hyphens, and parentheses
+      sanitizedValue = value.replace(/[^\d+\-\s()]/g, "");
+    }
+    setFormData((prev) => ({ ...prev, [field]: sanitizedValue }));
     if (errors[field]) {
       setErrors((prev) => {
         const newErrors = { ...prev };
@@ -181,8 +186,11 @@ export const BookDemoModal = ({ isOpen, onClose }: BookDemoModalProps) => {
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = "Invalid email";
     if (!formData.company.trim()) newErrors.company = "Company is required";
     if (!formData.country) newErrors.country = "Country is required";
-    if (formData.phone && !/^[\d+\-\s()]{10,}$/.test(formData.phone)) {
-      newErrors.phone = "Invalid phone number";
+    if (formData.phone) {
+      const digitsOnly = formData.phone.replace(/\D/g, "");
+      if (!/^[\d+\-\s()]+$/.test(formData.phone) || digitsOnly.length < 7 || digitsOnly.length > 15) {
+        newErrors.phone = "Please enter a valid phone number (7 to 15 digits)";
+      }
     }
     if (!recaptchaToken) {
       newErrors.captcha = "Please complete the reCAPTCHA verification.";

@@ -15,6 +15,7 @@ const quickLinks = [
   // { label: "Reviews", id: "reviews" },
   { label: "Blog", id: "blog" },
   { label: "FAQs", id: "faqs" },
+  { label: "Contact Us", id: "contact-us" },
 ];
 
 const scrollToSection = (id: string) => {
@@ -32,6 +33,11 @@ export const Footer = () => {
 
   const handleNavClick = (e: React.MouseEvent, id: string) => {
     e.preventDefault();
+
+    if (id === "contact-us" || id === "contact") {
+      navigate("/contact-us");
+      return;
+    }
 
     if (location.pathname === "/") {
       scrollToSection(id);
