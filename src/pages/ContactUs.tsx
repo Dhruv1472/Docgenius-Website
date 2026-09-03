@@ -370,7 +370,6 @@ export const ContactUs = () => {
     formData.firstName.trim() !== "" &&
     formData.lastName.trim() !== "" &&
     formData.email.trim() !== "" &&
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email) &&
     formData.company.trim() !== "" &&
     formData.country !== "" &&
     recaptchaToken !== "";
@@ -439,11 +438,133 @@ export const ContactUs = () => {
 
           {/* Main 2-Column Section */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start mb-20">
-            {/* Left Column: Book Demo / Contact Form (Expanded Width) */}
+            {/* Left Column: What to Expect & Direct Contact */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
+              className="lg:col-span-5 xl:col-span-5 space-y-6 sm:space-y-8"
+            >
+              {/* What You Get in a Demo */}
+              <div className="bg-card border border-border rounded-2xl p-6 sm:p-7 shadow-sm relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full pointer-events-none" />
+                <h2 className="text-xl sm:text-2xl font-bold font-display text-foreground mb-3 flex items-center gap-2.5">
+                  <Sparkles className="text-primary h-6 w-6 shrink-0" />
+                  What to Expect in Your Demo
+                </h2>
+                <p className="text-sm text-muted-foreground mb-5">
+                  No generic slide decks. We tailor every session directly to your documents and Salesforce data models.
+                </p>
+
+                <ul className="space-y-3.5 text-sm text-foreground/90">
+                  <li className="flex items-start gap-3">
+                    <div className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                      ✓
+                    </div>
+                    <div>
+                      <strong className="block text-foreground font-semibold">Tailored Salesforce Schema Walkthrough</strong>
+                      <span className="text-muted-foreground text-xs leading-relaxed">
+                        See how DocGenius extracts data from your Standard and Custom Objects seamlessly.
+                      </span>
+                    </div>
+                  </li>
+
+                  <li className="flex items-start gap-3">
+                    <div className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                      ✓
+                    </div>
+                    <div>
+                      <strong className="block text-foreground font-semibold">Dynamic Tables &amp; Merge Fields</strong>
+                      <span className="text-muted-foreground text-xs leading-relaxed">
+                        Watch how repeating line items, multi-tier tables, and conditional rules format instantly.
+                      </span>
+                    </div>
+                  </li>
+
+                  <li className="flex items-start gap-3">
+                    <div className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
+                      ✓
+                    </div>
+                    <div>
+                      <strong className="block text-foreground font-semibold">1-Click Automation &amp; Batching</strong>
+                      <span className="text-muted-foreground text-xs leading-relaxed">
+                        Discover automated delivery via Salesforce Flows, and mass-generation.
+                      </span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Direct Contact Channels */}
+              <div className="bg-card border border-border rounded-2xl p-6 sm:p-7 shadow-sm space-y-5">
+                <h3 className="text-lg font-bold font-display text-foreground flex items-center gap-2">
+                  <Building2 className="text-secondary h-5 w-5" />
+                  Direct Contact &amp; Support
+                </h3>
+
+                <div className="space-y-3.5">
+                  {/* Email */}
+                  <a
+                    href="https://mail.google.com/mail/?view=cm&fs=1&to=support-dg@mvclouds.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3.5 p-3.5 rounded-xl bg-muted/40 hover:bg-muted/70 transition-all border border-border/60 group"
+                  >
+                    <div className="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <Mail size={20} />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-xs text-muted-foreground font-medium">Email our specialists</div>
+                      <div className="text-sm font-semibold text-foreground truncate group-hover:text-primary transition-colors">
+                        support-dg@mvclouds.com
+                      </div>
+                      <div className="text-[11px] text-muted-foreground mt-0.5">Average response: &lt; 2 hours</div>
+                    </div>
+                  </a>
+
+                  {/* Phone / WhatsApp */}
+                  <a
+                    href="https://wa.me/919558019600?text=Hello%2C%20I%E2%80%99m%20interested%20in%20Docgenius.%20Can%20we%20discuss%20further%3F"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3.5 p-3.5 rounded-xl bg-muted/40 hover:bg-muted/70 transition-all border border-border/60 group"
+                  >
+                    <div className="h-10 w-10 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                      <Phone size={20} />
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-xs text-muted-foreground font-medium">Call or WhatsApp us</div>
+                      <div className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                        +91 9558019600
+                      </div>
+                      <div className="text-[11px] text-muted-foreground mt-0.5">Mon–Fri • 9:00 AM – 7:00 PM IST</div>
+                    </div>
+                  </a>
+
+                  {/* Office Locations */}
+                  <div className="p-3.5 rounded-xl bg-muted/30 border border-border/60 space-y-2.5">
+                    <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
+                      <MapPin size={14} className="text-primary" />
+                      Global Locations
+                    </div>
+                    <div className="text-xs text-foreground/80 space-y-2 leading-relaxed">
+                      <div>
+                        <strong className="text-foreground">India HQ:</strong> D-404, The First Synthesis, B/H Keshavbaug Party Plot, Ahmedabad, Gujarat - 380015
+                      </div>
+                      <div className="pt-1.5 border-t border-border/40">
+                        <strong className="text-foreground">U.A.E.:</strong> Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Right Column: Book Demo / Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
               className="lg:col-span-7 xl:col-span-7"
             >
               <div className="bg-card border border-border rounded-2xl shadow-xl overflow-hidden relative">
@@ -687,128 +808,6 @@ export const ContactUs = () => {
                     </div>
                   </form>
                 )}
-              </div>
-            </motion.div>
-
-            {/* Right Column: Product Information, Benefits & Direct Contact */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.15 }}
-              className="lg:col-span-5 xl:col-span-5 space-y-6 sm:space-y-8"
-            >
-              {/* What You Get in a Demo */}
-              <div className="bg-card border border-border rounded-2xl p-6 sm:p-7 shadow-sm relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-full pointer-events-none" />
-                <h2 className="text-xl sm:text-2xl font-bold font-display text-foreground mb-3 flex items-center gap-2.5">
-                  <Sparkles className="text-primary h-6 w-6 shrink-0" />
-                  What to Expect in Your Demo
-                </h2>
-                <p className="text-sm text-muted-foreground mb-5">
-                  No generic slide decks. We tailor every session directly to your documents and Salesforce data models.
-                </p>
-
-                <ul className="space-y-3.5 text-sm text-foreground/90">
-                  <li className="flex items-start gap-3">
-                    <div className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
-                      ✓
-                    </div>
-                    <div>
-                      <strong className="block text-foreground font-semibold">Tailored Salesforce Schema Walkthrough</strong>
-                      <span className="text-muted-foreground text-xs leading-relaxed">
-                        See how DocGenius extracts data from your Standard and Custom Objects seamlessly.
-                      </span>
-                    </div>
-                  </li>
-
-                  <li className="flex items-start gap-3">
-                    <div className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
-                      ✓
-                    </div>
-                    <div>
-                      <strong className="block text-foreground font-semibold">Dynamic Tables &amp; Merge Fields</strong>
-                      <span className="text-muted-foreground text-xs leading-relaxed">
-                        Watch how repeating line items, multi-tier tables, and conditional rules format instantly.
-                      </span>
-                    </div>
-                  </li>
-
-                  <li className="flex items-start gap-3">
-                    <div className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
-                      ✓
-                    </div>
-                    <div>
-                      <strong className="block text-foreground font-semibold">1-Click Automation &amp; Batching</strong>
-                      <span className="text-muted-foreground text-xs leading-relaxed">
-                        Discover automated delivery via Salesforce Flows, and mass-generation.
-                      </span>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Direct Contact Channels */}
-              <div className="bg-card border border-border rounded-2xl p-6 sm:p-7 shadow-sm space-y-5">
-                <h3 className="text-lg font-bold font-display text-foreground flex items-center gap-2">
-                  <Building2 className="text-secondary h-5 w-5" />
-                  Direct Contact &amp; Support
-                </h3>
-
-                <div className="space-y-3.5">
-                  {/* Email */}
-                  <a
-                    href="https://mail.google.com/mail/?view=cm&fs=1&to=support-dg@mvclouds.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-3.5 p-3.5 rounded-xl bg-muted/40 hover:bg-muted/70 transition-all border border-border/60 group"
-                  >
-                    <div className="h-10 w-10 rounded-lg bg-primary/10 text-primary flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                      <Mail size={20} />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-xs text-muted-foreground font-medium">Email our specialists</div>
-                      <div className="text-sm font-semibold text-foreground truncate group-hover:text-primary transition-colors">
-                        support-dg@mvclouds.com
-                      </div>
-                      <div className="text-[11px] text-muted-foreground mt-0.5">Average response: &lt; 2 hours</div>
-                    </div>
-                  </a>
-
-                  {/* Phone / WhatsApp */}
-                  <a
-                    href="https://wa.me/919558019600?text=Hello%2C%20I%E2%80%99m%20interested%20in%20Docgenius.%20Can%20we%20discuss%20further%3F"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-3.5 p-3.5 rounded-xl bg-muted/40 hover:bg-muted/70 transition-all border border-border/60 group"
-                  >
-                    <div className="h-10 w-10 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
-                      <Phone size={20} />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-xs text-muted-foreground font-medium">Call or WhatsApp us</div>
-                      <div className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
-                        +91 9558019600
-                      </div>
-                      <div className="text-[11px] text-muted-foreground mt-0.5">Mon–Fri • 9:00 AM – 7:00 PM IST</div>
-                    </div>
-                  </a>
-
-                  {/* Office Locations */}
-                  <div className="p-3.5 rounded-xl bg-muted/30 border border-border/60 space-y-2.5">
-                    <div className="flex items-center gap-2 text-xs font-semibold text-muted-foreground uppercase tracking-wider">
-                      <MapPin size={14} className="text-primary" />
-                      Global Locations
-                    </div>
-                    <div className="text-xs text-foreground/80 space-y-2 leading-relaxed">
-                      <div>
-                        <strong className="text-foreground">India HQ:</strong> D-404, The First Synthesis, B/H Keshavbaug Party Plot, Ahmedabad, Gujarat - 380015
-                      </div>
-                      <div className="pt-1.5 border-t border-border/40">
-                        <strong className="text-foreground">U.A.E.:</strong> Meydan Grandstand, 6th floor, Meydan Road, Nad Al Sheba, Dubai, U.A.E.
-                      </div>
-                    </div>
-                  </div>
-                </div>
               </div>
             </motion.div>
           </div>
