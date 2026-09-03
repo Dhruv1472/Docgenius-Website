@@ -5,7 +5,6 @@ import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA_LINKS } from "@/lib/utils";
 import docgeniusLogo from "@/assets/docGeniusLogoSvg.svg";
-import { BookDemoModal } from "@/components/BookDemoModal";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const navLinks = [
@@ -30,12 +29,15 @@ const doScroll = (id: string) => {
 
 export const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [bookDemoOpen, setBookDemoOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
   const handleNavClick = (e: React.MouseEvent, id: string, delay = 0) => {
     e.preventDefault();
+    if (id === "contact-us" || id === "contact") {
+      navigate("/contact-us");
+      return;
+    }
     if (location.pathname === "/") {
       if (delay > 0) {
         setTimeout(() => doScroll(id), delay);
@@ -45,6 +47,14 @@ export const Header = () => {
     } else {
       navigate("/");
       setTimeout(() => doScroll(id), 350);
+    }
+  };
+
+  const handleBookDemo = () => {
+    if (location.pathname === "/contact-us") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/contact-us");
     }
   };
 
@@ -68,7 +78,11 @@ export const Header = () => {
                 key={link.id}
                 href="#"
                 onClick={(e) => handleNavClick(e, link.id)}
-                className="text-nowrap px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
+                className={`text-nowrap px-3 py-2 text-sm font-medium transition-colors ${
+                  (link.id === "contact-us" && location.pathname === "/contact-us")
+                    ? "text-primary font-semibold"
+                    : "text-muted-foreground hover:text-foreground"
+                }`}
               >
                 {link.label}
               </a>
@@ -77,7 +91,7 @@ export const Header = () => {
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="hero" size="default" onClick={() => setBookDemoOpen(true)}>
+            <Button variant="hero" size="default" onClick={handleBookDemo}>
               Book Demo
             </Button>
             <Button variant="hero-outline" size="default" asChild>
@@ -114,13 +128,17 @@ export const Header = () => {
                     key={link.id}
                     href="#"
                     onClick={(e) => { setIsOpen(false); handleNavClick(e, link.id, 300); }}
-                    className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
+                    className={`px-4 py-3 text-sm font-medium rounded-lg transition-colors ${
+                      (link.id === "contact-us" && location.pathname === "/contact-us")
+                        ? "text-primary font-semibold bg-primary/10"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
                   >
                     {link.label}
                   </a>
                 ))}
                 <div className="flex flex-col gap-2 mt-4 pt-4 border-t border-border">
-                  <Button variant="hero" size="lg" className="w-full" onClick={() => setBookDemoOpen(true)}>
+                  <Button variant="hero" size="lg" className="w-full" onClick={() => { setIsOpen(false); handleBookDemo(); }}>
                     Book Demo
                   </Button>
                   <Button variant="hero-outline" size="lg" className="w-full" asChild>
@@ -134,8 +152,6 @@ export const Header = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      
-      <BookDemoModal isOpen={bookDemoOpen} onClose={() => setBookDemoOpen(false)} />
     </header>
   );
 };

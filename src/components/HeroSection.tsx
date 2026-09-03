@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FileText, Eye, Files, FileDown, PenTool, Workflow, CalendarClock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA_LINKS } from "@/lib/utils";
-import { BookDemoModal } from "@/components/BookDemoModal";
+import { Link } from "react-router-dom";
 import featureImg1 from "@/assets/hero-section-feature-1.png";
 import featureImg2 from "@/assets/hero-section-feature-2.png";
 import featureImg3 from "@/assets/hero-section-feature-3.png";
@@ -25,7 +25,6 @@ const carouselItems = [
 export const HeroSection = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [imageLoaded, setImageLoaded] = useState(false);
-  const [bookDemoOpen, setBookDemoOpen] = useState(false);
   const timerRef = useRef<number | null>(null);
 
   const handleIndicatorClick = (index: number) => {
@@ -108,8 +107,10 @@ export const HeroSection = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <Button variant="hero" size="xl" onClick={() => setBookDemoOpen(true)}>
-              Book a Demo
+            <Button variant="hero" size="xl" asChild>
+              <Link to="/contact-us">
+                Book a Demo
+              </Link>
             </Button>
             <Button variant="hero-outline" size="xl" asChild>
               <a href={CTA_LINKS.freeTrial} target="_blank" rel="noreferrer">
@@ -194,8 +195,6 @@ export const HeroSection = () => {
           </motion.div>
         </div>
       </div>
-      
-      <BookDemoModal isOpen={bookDemoOpen} onClose={() => setBookDemoOpen(false)} />
     </section>
   );
 };
